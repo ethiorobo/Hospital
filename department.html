@@ -3,50 +3,25 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Department — Horizon General Hospital</title>
+<title>Departments — Horizon General Hospital</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <style>
 *,*::before,*::after{box-sizing:border-box}*{margin:0;padding:0}
-:root{
-  --ink:#0b1b2b;--ink-2:#13293d;
-  --brand:#0e6fbe;--brand-2:#0a5a9c;--brand-3:#e6f2fb;
-  --accent:#14b8a6;--accent-soft:#e6fffb;
-  --sand:#f6f1e8;
-  --paper:#ffffff;--gray-50:#f7fafc;--gray-100:#eef2f7;
-  --gray-200:#dfe6ee;--gray-300:#c4cfdb;--gray-400:#94a3b8;
-  --gray-500:#6b7c8f;--gray-600:#4b5e72;--gray-700:#2f4156;--gray-800:#1f3145;
-  --red:#e11d48;
-  --radius:1.25rem;--radius-lg:2rem;
-  --shadow-sm:0 1px 2px rgba(11,27,43,.06),0 1px 3px rgba(11,27,43,.04);
-  --shadow-md:0 10px 30px -12px rgba(11,27,43,.18),0 4px 12px -4px rgba(11,27,43,.08);
-  --shadow-lg:0 30px 60px -20px rgba(11,27,43,.25),0 12px 24px -8px rgba(11,27,43,.12);
-  --font-serif:'Fraunces',Georgia,serif;
-  --font-sans:'Inter',system-ui,-apple-system,sans-serif;
-}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{font-family:var(--font-sans);background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.55;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
-a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:pointer;background:none;border:none}
-img{display:block;max-width:100%}
+:root{--ink:#0b1b2b;--ink-2:#13293d;--brand:#0e6fbe;--brand-2:#0a5a9c;--brand-3:#e6f2fb;--accent:#14b8a6;--accent-soft:#e6fffb;--sand:#f6f1e8;--paper:#fff;--gray-50:#f7fafc;--gray-100:#eef2f7;--gray-200:#dfe6ee;--gray-300:#c4cfdb;--gray-400:#94a3b8;--gray-500:#6b7c8f;--gray-600:#4b5e72;--gray-700:#2f4156;--gray-800:#1f3145;--red:#e11d48;--radius:1.25rem;--radius-lg:2rem;--shadow-sm:0 1px 2px rgba(11,27,43,.06);--shadow-md:0 10px 30px -12px rgba(11,27,43,.18);--font-serif:'Fraunces',Georgia,serif;--font-sans:'Inter',system-ui,sans-serif}
+html{scroll-behavior:smooth}body{font-family:var(--font-sans);background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.55;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:pointer;background:none;border:none}img{display:block;max-width:100%}
 a:focus-visible,button:focus-visible{outline:2px solid var(--brand);outline-offset:3px;border-radius:.5rem}
-.container{width:100%;max-width:1240px;margin-inline:auto;padding-inline:1.5rem}
-.app{flex:1}
-
-/* EMERGENCY STRIP */
+.container{width:100%;max-width:1240px;margin-inline:auto;padding-inline:1.5rem}.app{flex:1}
 .emergency{background:var(--ink);color:#fff;font-size:.8125rem}
 .emergency__inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.75rem;padding-block:.625rem}
 .emergency__left{display:flex;align-items:center;gap:.625rem}
 .emergency__pulse{width:.5rem;height:.5rem;border-radius:50%;background:#ff4d6a;box-shadow:0 0 0 0 rgba(255,77,106,.7);animation:pulse 2s infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,77,106,.7)}70%{box-shadow:0 0 0 10px rgba(255,77,106,0)}100%{box-shadow:0 0 0 0 rgba(255,77,106,0)}}
-.emergency__left b{font-weight:600}
-.emergency__left a{color:#fff;text-decoration:underline;text-underline-offset:3px;font-weight:600}
-.emergency__link{color:#c9d6e3;display:flex;align-items:center;gap:.375rem;transition:color .2s}
-.emergency__link:hover{color:#fff}
-.emergency__link svg{width:.875rem;height:.875rem}
-
-/* HEADER */
-.hdr{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid transparent;transition:border-color .3s, box-shadow .3s, background .3s}
+.emergency__left b{font-weight:600}.emergency__left a{color:#fff;text-decoration:underline;text-underline-offset:3px;font-weight:600}
+.emergency__link{color:#c9d6e3;display:flex;align-items:center;gap:.375rem;transition:color .2s}.emergency__link:hover{color:#fff}.emergency__link svg{width:.875rem;height:.875rem}
+.hdr{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s}
 .hdr.is-scrolled{border-color:var(--gray-200);box-shadow:0 4px 20px -8px rgba(11,27,43,.08);background:rgba(255,255,255,.95)}
 .hdr__inner{display:flex;align-items:center;justify-content:space-between;padding-block:.875rem;gap:1rem}
 .logo{display:flex;align-items:center;gap:.625rem}
@@ -58,157 +33,73 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--brand);outline-offs
 .nav{display:none;gap:1.5rem;align-items:center}
 .nav a{font-size:.875rem;font-weight:500;color:var(--gray-700);position:relative;padding:.25rem 0;transition:color .2s}
 .nav a::after{content:'';position:absolute;left:0;bottom:-2px;height:2px;width:0;background:var(--brand);transition:width .25s ease}
-.nav a:hover{color:var(--brand)}
-.nav a:hover::after{width:100%}
+.nav a:hover{color:var(--brand)}.nav a:hover::after{width:100%}
 .hdr__actions{display:flex;align-items:center;gap:.5rem}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.75rem 1.25rem;border-radius:999px;font-size:.875rem;font-weight:600;transition:transform .2s, background .2s, box-shadow .2s;border:1px solid transparent;white-space:nowrap;cursor:pointer}
-.btn--primary{background:var(--ink);color:#fff}
-.btn--primary:hover{background:var(--brand);transform:translateY(-1px);box-shadow:0 12px 24px -12px rgba(14,111,190,.6)}
-.btn--ghost{border-color:var(--gray-200);color:var(--ink);background:#fff}
-.btn--ghost:hover{border-color:var(--ink);transform:translateY(-1px)}
-.btn--accent{background:var(--accent);color:#fff}
-.btn--accent:hover{background:#0fa396;transform:translateY(-1px)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.75rem 1.25rem;border-radius:999px;font-size:.875rem;font-weight:600;transition:transform .2s,background .2s,box-shadow .2s;border:1px solid transparent;white-space:nowrap;cursor:pointer}
+.btn--primary{background:var(--ink);color:#fff}.btn--primary:hover{background:var(--brand);transform:translateY(-1px);box-shadow:0 12px 24px -12px rgba(14,111,190,.6)}
 .btn svg{width:1rem;height:1rem}
 .hdr .btn--primary{padding:.625rem 1rem;font-size:.8125rem}
 .burger{display:grid;place-items:center;width:2.5rem;height:2.5rem;border-radius:.75rem;border:1px solid var(--gray-200);background:#fff}
-.burger svg{width:1.125rem;height:1.125rem;stroke:var(--ink)}
-.burger:hover{background:var(--gray-50)}
+.burger svg{width:1.125rem;height:1.125rem;stroke:var(--ink)}.burger:hover{background:var(--gray-50)}
 @media(min-width:960px){.nav{display:flex}.burger{display:none}}
-
-/* DRAWER */
 .drawer{position:fixed;inset:0;background:rgba(11,27,43,.5);backdrop-filter:blur(4px);z-index:80;opacity:0;pointer-events:none;transition:opacity .3s}
 .drawer.is-open{opacity:1;pointer-events:auto}
 .drawer__panel{position:absolute;top:0;right:0;bottom:0;width:min(340px,88vw);background:#fff;transform:translateX(100%);transition:transform .35s cubic-bezier(.16,1,.3,1);display:flex;flex-direction:column;padding:1.5rem;overflow-y:auto}
 .drawer.is-open .drawer__panel{transform:none}
 .drawer__head{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem}
-.drawer__close{width:2.25rem;height:2.25rem;display:grid;place-items:center;border-radius:.75rem;border:1px solid var(--gray-200)}
-.drawer__close:hover{background:var(--gray-50)}
+.drawer__close{width:2.25rem;height:2.25rem;display:grid;place-items:center;border-radius:.75rem;border:1px solid var(--gray-200)}.drawer__close:hover{background:var(--gray-50)}
 .drawer__nav{display:flex;flex-direction:column;gap:.25rem}
 .drawer__nav a{padding:.875rem .75rem;border-radius:.75rem;font-size:1rem;font-weight:500;color:var(--gray-800);display:flex;justify-content:space-between;align-items:center;transition:background .2s}
 .drawer__nav a:hover{background:var(--gray-50)}
 .drawer__nav a svg{width:1rem;height:1rem;color:var(--gray-300)}
 .drawer__nav a.danger{color:var(--red);margin-top:.5rem;border-top:1px solid var(--gray-200);padding-top:1rem}
 .drawer__nav a.danger:hover{background:#fff1f3}
-.drawer__cta{margin-top:1.5rem;display:flex;flex-direction:column;gap:.5rem}
-.drawer__cta .btn{width:100%}
+.drawer__cta{margin-top:1.5rem;display:flex;flex-direction:column;gap:.5rem}.drawer__cta .btn{width:100%}
 .drawer__foot{margin-top:auto;padding-top:1.5rem;border-top:1px solid var(--gray-200);font-size:.8125rem;color:var(--gray-500);line-height:1.6}
 .drawer__foot a{color:var(--brand);text-decoration:underline}
-
-/* HERO */
-.dept-hero{position:relative;background:linear-gradient(180deg,#fbfdff 0%,#f4f9ff 100%);padding-block:3rem 4rem;border-bottom:1px solid var(--gray-200);overflow:hidden}
-.dept-hero::before{content:'';position:absolute;inset:0;background:
-  radial-gradient(50rem 30rem at 90% 0%,rgba(20,184,166,.10),transparent 60%),
-  radial-gradient(40rem 30rem at 0% 100%,rgba(14,111,190,.08),transparent 60%);pointer-events:none}
-.dept-hero__inner{position:relative;display:grid;gap:3rem;align-items:center}
-@media(min-width:960px){.dept-hero__inner{grid-template-columns:1.15fr .85fr;gap:4rem}}
-.back{display:inline-flex;align-items:center;gap:.5rem;font-size:.8125rem;font-weight:600;color:var(--brand);margin-bottom:1.5rem;transition:gap .2s}
-.back:hover{gap:.75rem}
-.back svg{width:.875rem;height:.875rem;transform:rotate(180deg)}
-.dept-tag{display:inline-flex;align-items:center;gap:.5rem;padding:.375rem .75rem .375rem .5rem;background:#fff;border:1px solid var(--gray-200);border-radius:999px;font-size:.75rem;font-weight:500;color:var(--gray-600);box-shadow:var(--shadow-sm)}
-.dept-tag__dot{width:1.25rem;height:1.25rem;border-radius:50%;background:var(--accent-soft);display:grid;place-items:center}
-.dept-tag__dot svg{width:.75rem;height:.75rem;stroke:var(--accent)}
-.dept-hero h1{font-family:var(--font-serif);font-weight:500;font-size:clamp(2.5rem,5vw,4rem);line-height:1;letter-spacing:-.02em;color:var(--ink);margin-top:1.25rem}
-.dept-hero p.lead{margin-top:1.25rem;font-size:1.0625rem;color:var(--gray-600);max-width:36rem;line-height:1.6}
-.dept-hero__meta{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
-.meta-chip{display:inline-flex;align-items:center;gap:.5rem;padding:.625rem 1rem;background:#fff;border:1px solid var(--gray-200);border-radius:.875rem;font-size:.8125rem;color:var(--gray-700);box-shadow:var(--shadow-sm)}
-.meta-chip strong{color:var(--ink);font-weight:600}
-.meta-chip svg{width:.875rem;height:.875rem;color:var(--brand);flex-shrink:0}
-
-/* HERO ART */
-.dept-art{position:relative;aspect-ratio:1/1;max-width:360px;margin-inline:auto;width:100%;border-radius:var(--radius-lg);background:linear-gradient(135deg,var(--brand),var(--brand-2));overflow:hidden;box-shadow:var(--shadow-lg);isolation:isolate}
-.dept-art::before{content:'';position:absolute;inset:0;background:
-  radial-gradient(20rem 20rem at 100% 0%,rgba(20,184,166,.4),transparent 60%),
-  radial-gradient(20rem 20rem at 0% 100%,rgba(255,255,255,.15),transparent 60%);z-index:-1}
-.dept-art svg{position:absolute;inset:0;width:100%;height:100%}
-
-/* CONTENT */
-.section{padding-block:4rem}
-.section--tint{background:var(--sand)}
-.section-head{margin-bottom:2rem}
-.kicker{display:inline-flex;align-items:center;gap:.5rem;font-size:.75rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--brand)}
-.kicker::before{content:'';width:1.5rem;height:1px;background:currentColor}
-.section-head h2{font-family:var(--font-serif);font-size:clamp(1.75rem,2.5vw,2.25rem);font-weight:500;letter-spacing:-.015em;line-height:1.1;color:var(--ink);margin-top:.75rem;max-width:36rem}
-.section-head p{color:var(--gray-600);max-width:34rem;margin-top:.75rem}
-
-/* SERVICES GRID */
-.services{display:grid;gap:1rem;grid-template-columns:1fr}
-@media(min-width:640px){.services{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:1024px){.services{grid-template-columns:repeat(4,1fr)}}
-.service-card{background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius);padding:1.5rem;position:relative;overflow:hidden;transition:transform .25s, box-shadow .25s, border-color .25s}
-.service-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--brand-3),transparent);opacity:0;transition:opacity .3s;pointer-events:none}
-.service-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:transparent}
-.service-card:hover::before{opacity:1}
-.service-card > *{position:relative}
-.service-card__icon{width:2.75rem;height:2.75rem;border-radius:.875rem;display:grid;place-items:center;background:var(--brand-3);color:var(--brand);margin-bottom:1rem;transition:background .25s,color .25s}
-.service-card:hover .service-card__icon{background:var(--brand);color:#fff}
-.service-card__icon svg{width:1.25rem;height:1.25rem}
-.service-card h3{font-family:var(--font-serif);font-size:1.0625rem;font-weight:500;color:var(--ink);letter-spacing:-.005em;line-height:1.25}
-.service-card p{margin-top:.5rem;font-size:.8125rem;color:var(--gray-500);line-height:1.5}
-
-/* DOCTORS */
-.doctors{display:grid;gap:1.25rem;grid-template-columns:1fr}
-@media(min-width:768px){.doctors{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:1024px){.doctors{grid-template-columns:repeat(3,1fr)}}
-.doc{background:#fff;border-radius:var(--radius);overflow:hidden;border:1px solid var(--gray-200);transition:transform .3s, box-shadow .3s, border-color .3s;display:flex;flex-direction:column}
-.doc:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:transparent}
-.doc__img{aspect-ratio:5/4;position:relative;overflow:hidden;background:linear-gradient(135deg,var(--brand-3),var(--gray-100))}
-.doc__img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
-.doc:hover .doc__img img{transform:scale(1.05)}
-.doc__badge{position:absolute;top:.75rem;left:.75rem;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);padding:.375rem .75rem;border-radius:999px;font-size:.6875rem;font-weight:600;letter-spacing:.04em;color:#0fa396;display:flex;align-items:center;gap:.375rem;text-transform:uppercase}
-.doc__badge::before{content:'';width:.375rem;height:.375rem;border-radius:50%;background:#0fa396}
-.doc__badge.waitlist{color:var(--gray-500)}
-.doc__badge.waitlist::before{background:var(--gray-400)}
-.doc__body{padding:1.25rem;display:flex;flex-direction:column;gap:.5rem;flex:1}
-.doc__name{font-family:var(--font-serif);font-size:1.125rem;font-weight:500;letter-spacing:-.005em;color:var(--ink)}
-.doc__role{font-size:.8125rem;color:var(--gray-500);font-weight:500}
-.doc__bio{margin-top:.25rem;font-size:.8125rem;color:var(--gray-600);line-height:1.5}
-.doc__meta{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem;padding-top:.75rem;border-top:1px solid var(--gray-100)}
-.doc__meta span{font-size:.75rem;color:var(--gray-600);display:inline-flex;align-items:center;gap:.25rem}
-.doc__meta span svg{width:.75rem;height:.75rem;color:var(--gray-400)}
-.doc__footer{margin-top:auto;padding-top:1rem;display:flex;gap:.5rem;align-items:center;justify-content:space-between}
-.doc__next{font-size:.75rem;color:#0fa396;font-weight:600;display:flex;align-items:center;gap:.375rem}
-.doc__next::before{content:'';width:.375rem;height:.375rem;border-radius:50%;background:#0fa396}
-.doc__cta{font-size:.8125rem;font-weight:600;color:var(--brand);display:inline-flex;align-items:center;gap:.25rem;padding:.5rem .875rem;background:var(--brand-3);border-radius:999px;transition:background .2s,color .2s}
-.doc__cta:hover{background:var(--brand);color:#fff}
-.doc__cta svg{width:.875rem;height:.875rem;transition:transform .2s}
-.doc__cta:hover svg{transform:translateX(2px)}
-
-/* EMPTY STATE */
-.empty{padding:2.5rem;text-align:center;border:1px dashed var(--gray-300);border-radius:var(--radius);color:var(--gray-500);font-size:.875rem}
-
-/* OTHER DEPTS */
-.other-depts{display:grid;gap:.75rem;grid-template-columns:1fr}
-@media(min-width:640px){.other-depts{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:1024px){.other-depts{grid-template-columns:repeat(4,1fr)}}
-.other-dept{display:flex;align-items:center;gap:.75rem;padding:1rem 1.25rem;background:#fff;border:1px solid var(--gray-200);border-radius:.875rem;font-size:.875rem;font-weight:500;color:var(--ink);transition:border-color .2s, transform .2s, box-shadow .2s}
-.other-dept:hover{border-color:var(--brand);transform:translateY(-2px);box-shadow:var(--shadow-sm);color:var(--brand)}
-.other-dept svg{width:.875rem;height:.875rem;color:var(--gray-400);margin-left:auto;transition:transform .2s,color .2s}
-.other-dept:hover svg{color:var(--brand);transform:translateX(2px)}
-
-/* CTA */
-.cta{position:relative;overflow:hidden;border-radius:var(--radius-lg);padding:3rem 2rem;color:#fff;background:linear-gradient(135deg,var(--brand) 0%,var(--brand-2) 100%)}
-@media(min-width:768px){.cta{padding:3.5rem 3rem}}
-.cta::before{content:'';position:absolute;inset:0;background:
-  radial-gradient(30rem 20rem at 100% 0%,rgba(20,184,166,.35),transparent 60%),
-  radial-gradient(30rem 20rem at 0% 100%,rgba(255,255,255,.12),transparent 60%);pointer-events:none}
-.cta__inner{position:relative;display:grid;gap:2rem;align-items:center}
-@media(min-width:768px){.cta__inner{grid-template-columns:1fr auto;gap:3rem}}
-.cta h2{font-family:var(--font-serif);font-size:clamp(1.625rem,2.5vw,2rem);font-weight:500;letter-spacing:-.015em;line-height:1.15}
-.cta p{margin-top:.75rem;color:rgba(255,255,255,.85);max-width:32rem;font-size:.9375rem}
-.cta__actions{display:flex;flex-wrap:wrap;gap:.75rem}
+.page-hero{position:relative;background:linear-gradient(180deg,#fbfdff 0%,#f4f9ff 100%);padding-block:4rem 5rem;border-bottom:1px solid var(--gray-200);overflow:hidden}
+.page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(50rem 30rem at 90% 0%,rgba(20,184,166,.10),transparent 60%),radial-gradient(40rem 30rem at 0% 100%,rgba(14,111,190,.08),transparent 60%);pointer-events:none}
+.page-hero__inner{position:relative;text-align:center;max-width:44rem;margin-inline:auto}
+.page-hero h1{font-family:var(--font-serif);font-weight:500;font-size:clamp(2.5rem,5.5vw,4rem);line-height:1;letter-spacing:-.02em;color:var(--ink)}
+.page-hero h1 em{font-style:italic;color:var(--brand)}
+.page-hero p{margin-top:1.5rem;font-size:1.0625rem;color:var(--gray-600);line-height:1.6}
+.section{padding-block:5rem}
+.depts{display:grid;gap:1.25rem;grid-template-columns:1fr}
+@media(min-width:640px){.depts{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.depts{grid-template-columns:repeat(3,1fr)}}
+.dept{background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius);overflow:hidden;transition:transform .3s,box-shadow .3s,border-color .3s;display:flex;flex-direction:column}
+.dept:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:transparent}
+.dept__img{aspect-ratio:16/10;position:relative;overflow:hidden;background:linear-gradient(135deg,var(--brand),var(--brand-2))}
+.dept__img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.dept:hover .dept__img img{transform:scale(1.06)}
+.dept__img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(11,27,43,.5) 100%);pointer-events:none}
+.dept__arrow{position:absolute;top:.875rem;right:.875rem;width:2.25rem;height:2.25rem;border-radius:50%;background:rgba(255,255,255,.95);display:grid;place-items:center;transition:background .3s,transform .3s;z-index:2}
+.dept__arrow svg{width:.875rem;height:.875rem;stroke:var(--ink)}
+.dept:hover .dept__arrow{background:var(--accent);transform:rotate(-45deg)}
+.dept:hover .dept__arrow svg{stroke:#fff}
+.dept__body{padding:1.5rem;display:flex;flex-direction:column;gap:.5rem;flex:1}
+.dept__name{font-family:var(--font-serif);font-size:1.25rem;font-weight:500;letter-spacing:-.005em;color:var(--ink)}
+.dept__desc{font-size:.9375rem;color:var(--gray-600);line-height:1.5}
+.dept__meta{margin-top:auto;padding-top:1rem;display:flex;flex-wrap:wrap;gap:.75rem;font-size:.75rem;color:var(--gray-500)}
+.dept__meta span{display:inline-flex;align-items:center;gap:.375rem}
+.dept__meta svg{width:.75rem;height:.75rem;color:var(--gray-400)}
+.cta{position:relative;overflow:hidden;border-radius:var(--radius-lg);padding:3rem 2rem;color:#fff;background:linear-gradient(135deg,var(--brand) 0%,var(--brand-2) 100%);margin-block:4rem}
+.cta::before{content:'';position:absolute;inset:0;background:radial-gradient(30rem 20rem at 100% 0%,rgba(20,184,166,.35),transparent 60%);pointer-events:none}
+.cta__inner{position:relative;display:grid;gap:2rem;align-items:center;text-align:center}
+@media(min-width:768px){.cta__inner{grid-template-columns:1fr auto;text-align:left;gap:3rem}}
+.cta h2{font-family:var(--font-serif);font-size:clamp(1.75rem,3vw,2.5rem);font-weight:500;letter-spacing:-.015em;line-height:1.1}
+.cta p{margin-top:.75rem;color:rgba(255,255,255,.85);max-width:36rem;font-size:.9375rem}
+.cta__actions{display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center}
+@media(min-width:768px){.cta__actions{justify-content:flex-end}}
 .cta__actions .btn{padding:.875rem 1.5rem}
-.btn--light{background:#fff;color:var(--ink)}
-.btn--light:hover{background:var(--sand);transform:translateY(-1px)}
-
-/* FOOTER */
-.footer{background:var(--ink);color:#a9b8c7;margin-top:4rem;position:relative;overflow:hidden}
+.btn--light{background:#fff;color:var(--ink)}.btn--light:hover{background:var(--sand);transform:translateY(-1px)}
+.footer{background:var(--ink);color:#a9b8c7;margin-top:2rem;position:relative;overflow:hidden}
 .footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(20,184,166,.5),transparent)}
 .footer__inner{padding-block:4rem 2rem}
 .footer__grid{display:grid;gap:2.5rem;grid-template-columns:1fr}
 @media(min-width:640px){.footer__grid{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:1024px){.footer__grid{grid-template-columns:1.5fr 1fr 1fr 1fr}}
-.footer__brand .logo__name{color:#fff}
-.footer__brand .logo__sub{color:#6b7c8f}
+.footer__brand .logo__name{color:#fff}.footer__brand .logo__sub{color:#6b7c8f}
 .footer__about{margin-top:1.25rem;font-size:.875rem;line-height:1.6;max-width:22rem}
 .footer__contact{margin-top:1.5rem;display:flex;flex-direction:column;gap:.5rem;font-size:.875rem}
 .footer__contact a{display:flex;align-items:center;gap:.5rem;transition:color .2s}
@@ -216,21 +107,17 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--brand);outline-offs
 .footer__contact svg{width:.875rem;height:.875rem;color:var(--accent);flex-shrink:0}
 .footer h4{color:#fff;font-size:.8125rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;margin-bottom:1rem}
 .footer ul{list-style:none;display:flex;flex-direction:column;gap:.5rem}
-.footer ul a{font-size:.875rem;transition:color .2s}
-.footer ul a:hover{color:#fff}
+.footer ul a{font-size:.875rem;transition:color .2s}.footer ul a:hover{color:#fff}
 .footer__bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:1.5rem;margin-top:3rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;font-size:.75rem}
 .footer__emergency{display:inline-flex;align-items:center;gap:.5rem;color:#fff;font-weight:600}
 .footer__emergency::before{content:'';width:.5rem;height:.5rem;border-radius:50%;background:#ff4d6a;animation:pulse 2s infinite}
-
-/* REVEAL */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1)}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
 .reveal.is-in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}*{animation-duration:0s!important;transition-duration:0s!important}}
 </style>
 </head>
 <body>
 
-<!-- EMERGENCY STRIP -->
 <div class="emergency">
   <div class="container emergency__inner">
     <div class="emergency__left">
@@ -238,25 +125,18 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--brand);outline-offs
       <span><b>Emergency?</b> Call <a href="tel:907">907</a> — open 24/7</span>
     </div>
     <div>
-      <a href="emergency.html" class="emergency__link">
-        Live ER wait times
+      <a href="emergency.html" class="emergency__link">Live ER wait times
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
     </div>
   </div>
 </div>
 
-<!-- HEADER -->
 <header class="hdr" id="hdr">
   <div class="container hdr__inner">
     <a href="index.html" class="logo">
-      <span class="logo__mark">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/></svg>
-      </span>
-      <span class="logo__text">
-        <span class="logo__name">Horizon</span>
-        <span class="logo__sub">General Hospital</span>
-      </span>
+      <span class="logo__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/></svg></span>
+      <span class="logo__text"><span class="logo__name">Horizon</span><span class="logo__sub">General Hospital</span></span>
     </a>
     <nav class="nav">
       <a href="find-a-doctor.html">Find a doctor</a>
@@ -267,8 +147,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--brand);outline-offs
       <a href="news.html">News</a>
     </nav>
     <div class="hdr__actions">
-      <a href="book.html" class="btn btn--primary">
-        Book a visit
+      <a href="book.html" class="btn btn--primary">Book a visit
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
       <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
@@ -278,15 +157,14 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--brand);outline-offs
   </div>
 </header>
 
-<!-- DRAWER -->
 <div class="drawer" id="drawer" aria-hidden="true">
-  <div class="drawer__panel" role="dialog" aria-modal="true">
+  <div class="drawer__panel">
     <div class="drawer__head">
       <a href="index.html" class="logo">
         <span class="logo__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/></svg></span>
         <span class="logo__text"><span class="logo__name">Horizon</span><span class="logo__sub">General Hospital</span></span>
       </a>
-      <button class="drawer__close" id="drawerClose" aria-label="Close menu">
+      <button class="drawer__close" id="drawerClose" aria-label="Close">
         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
       </button>
     </div>
@@ -306,7 +184,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--brand);outline-offs
     </nav>
     <div class="drawer__cta">
       <a href="book.html" class="btn btn--primary">Book a visit</a>
-      <a href="portal.html" class="btn btn--ghost">Patient portal</a>
     </div>
     <div class="drawer__foot">
       <p>Emergency? Call <a href="tel:907">907</a></p>
@@ -316,118 +193,36 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--brand);outline-offs
 </div>
 
 <main class="app">
-
-  <!-- HERO -->
-  <section class="dept-hero">
-    <div class="container dept-hero__inner">
-      <div class="reveal">
-        <a href="departments.html" class="back">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-          All departments
-        </a>
-        <span class="dept-tag">
-          <span class="dept-tag__dot">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-          </span>
-          <span id="dept-tag-label">Specialist care</span>
-        </span>
-        <h1 id="dept-name">Loading…</h1>
-        <p class="lead" id="dept-desc"></p>
-        <div class="dept-hero__meta">
-          <span class="meta-chip">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            Lead: <strong id="dept-head">—</strong>
-          </span>
-          <span class="meta-chip">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <strong id="dept-loc">—</strong>
-          </span>
-        </div>
-      </div>
-
-      <div class="dept-art reveal">
-        <svg viewBox="0 0 400 400" fill="none" aria-hidden="true">
-          <circle cx="200" cy="200" r="150" stroke="rgba(255,255,255,.25)" stroke-width="1" stroke-dasharray="4 8"/>
-          <circle cx="200" cy="200" r="110" stroke="rgba(255,255,255,.4)" stroke-width="1.5"/>
-          <circle cx="200" cy="200" r="70" stroke="rgba(255,255,255,.6)" stroke-width="2" stroke-dasharray="2 6"/>
-          <circle cx="200" cy="200" r="30" stroke="rgba(255,255,255,.9)" stroke-width="2"/>
-          <g transform="translate(200 200)">
-            <rect x="-30" y="-8" width="60" height="16" rx="8" fill="#14b8a6" opacity="0.95"/>
-            <rect x="-8" y="-30" width="16" height="60" rx="8" fill="#14b8a6" opacity="0.95"/>
-          </g>
-          <circle cx="200" cy="50" r="5" fill="#14b8a6">
-            <animate attributeName="opacity" values="1;.3;1" dur="2s" repeatCount="indefinite"/>
-          </circle>
-          <circle cx="350" cy="200" r="4" fill="#fff">
-            <animate attributeName="opacity" values=".4;1;.4" dur="2.6s" repeatCount="indefinite"/>
-          </circle>
-          <circle cx="200" cy="350" r="6" fill="#14b8a6">
-            <animate attributeName="opacity" values="1;.4;1" dur="3s" repeatCount="indefinite"/>
-          </circle>
-          <circle cx="50" cy="200" r="4" fill="#fff">
-            <animate attributeName="opacity" values=".5;1;.5" dur="2.2s" repeatCount="indefinite"/>
-          </circle>
-        </svg>
-      </div>
+  <section class="page-hero">
+    <div class="container page-hero__inner reveal">
+      <h1>Every specialty, <em>under one roof</em>.</h1>
+      <p>Eight clinical departments working as one hospital. Same standards, same care, coordinated across the whole team.</p>
     </div>
   </section>
 
-  <!-- SERVICES -->
   <section class="section">
     <div class="container">
-      <div class="section-head reveal">
-        <span class="kicker">What we offer</span>
-        <h2>Services in this department.</h2>
-        <p>Everything under one roof, coordinated by a single clinical team.</p>
-      </div>
-      <div class="services" id="dept-services"></div>
+      <div class="depts" id="dept-grid"></div>
     </div>
   </section>
 
-  <!-- DOCTORS -->
-  <section class="section section--tint" id="docs-section" hidden>
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="kicker">Meet the team</span>
-        <h2>Doctors you can book today.</h2>
-        <p>Real availability — no waitlists, no runaround.</p>
-      </div>
-      <div class="doctors" id="dept-docs"></div>
-    </div>
-  </section>
-
-  <!-- OTHER DEPTS -->
-  <section class="section">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="kicker">Explore</span>
-        <h2>Other departments.</h2>
-      </div>
-      <div class="other-depts" id="other-depts"></div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <div class="container" style="padding-block:2rem 4rem">
+  <div class="container">
     <div class="cta reveal">
       <div class="cta__inner">
         <div>
-          <h2>Ready to book?</h2>
-          <p>Choose a specialist from this department and pick a time that works. Confirmation in 30 minutes by SMS.</p>
+          <h2>Not sure which department?</h2>
+          <p>Book a general consultation and we'll route you to the right specialist.</p>
         </div>
         <div class="cta__actions">
-          <a href="book.html" class="btn btn--light">
-            Book a visit
+          <a href="book.html" class="btn btn--light">Book a visit
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
-          <a href="find-a-doctor.html" class="btn btn--ghost" style="border-color:rgba(255,255,255,.4);color:#fff;background:transparent">All doctors</a>
         </div>
       </div>
     </div>
   </div>
 </main>
 
-<!-- FOOTER -->
 <footer class="footer">
   <div class="container footer__inner">
     <div class="footer__grid">
@@ -440,7 +235,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--brand);outline-offs
         <div class="footer__contact">
           <a href="tel:+251115550100"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>+251 11 555 0100</a>
           <a href="mailto:info@horizonhospital.example"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>info@horizonhospital.example</a>
-          <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Bole Road, Addis Ababa</a>
         </div>
       </div>
       <div>
@@ -459,7 +253,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--brand);outline-offs
           <li><a href="patients-visitors.html">Visiting hours</a></li>
           <li><a href="portal.html">Patient portal</a></li>
           <li><a href="insurance.html">Insurance</a></li>
-          <li><a href="patients-visitors.html">Parking &amp; maps</a></li>
         </ul>
       </div>
       <div>
@@ -480,134 +273,48 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--brand);outline-offs
 </footer>
 
 <script>
-/* ===== HEADER ===== */
 const hdr = document.getElementById('hdr');
-window.addEventListener('scroll', () => {
-  hdr.classList.toggle('is-scrolled', window.scrollY > 8);
-}, { passive: true });
-
-/* ===== DRAWER ===== */
-const drawer = document.getElementById('drawer');
-const burger = document.getElementById('burger');
-const drawerClose = document.getElementById('drawerClose');
+window.addEventListener('scroll', () => hdr.classList.toggle('is-scrolled', window.scrollY > 8), { passive: true });
+const drawer = document.getElementById('drawer'), burger = document.getElementById('burger'), drawerClose = document.getElementById('drawerClose');
 function openDrawer(){ drawer.classList.add('is-open'); drawer.setAttribute('aria-hidden','false'); burger.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
 function closeDrawer(){ drawer.classList.remove('is-open'); drawer.setAttribute('aria-hidden','true'); burger.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
-burger.addEventListener('click', openDrawer);
-drawerClose.addEventListener('click', closeDrawer);
+burger.addEventListener('click', openDrawer); drawerClose.addEventListener('click', closeDrawer);
 drawer.addEventListener('click', (e) => { if (e.target === drawer) closeDrawer(); });
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDrawer(); });
 
-/* ===== REVEAL ===== */
 const io = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
 }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-/* ===== DATA ===== */
-const DEPTS = {
-  cardiology: { name:"Cardiology", short:"Heart & vascular care", desc:"Our cardiology team provides preventive heart screening, echocardiography, stress testing and ongoing management of hypertension and heart disease.",
-    services:["ECG & echocardiography","Stress testing","Hypertension clinic","Cardiac rehabilitation"],
-    head:"Dr. Selam Tesfaye", loc:"Level 2, Suite 2A", icon:"heart" },
-  pediatrics: { name:"Pediatrics", short:"Newborn to teen", desc:"From well-child visits to acute care, our pediatric team looks after patients from birth to 18 years, with a child-friendly ward and 24-hour on-call coverage.",
-    services:["Well-child visits","Vaccination","Neonatal care","Pediatric emergency"],
-    head:"Dr. Hanna Girma", loc:"Level 1, Suite 1C", icon:"child" },
-  "internal-medicine": { name:"Internal Medicine", short:"Adult primary care", desc:"General adult medicine covering diabetes, respiratory disease, infectious disease and multi-condition care coordination.",
-    services:["Annual health check","Diabetes clinic","Respiratory clinic","Infectious disease"],
-    head:"Dr. Abel Mekonnen", loc:"Level 3, Suite 3B", icon:"stethoscope" },
-  orthopedics: { name:"Orthopedics", short:"Bones & joints", desc:"Orthopedic surgery and conservative care for fractures, joint pain, sports injuries and post-operative rehabilitation.",
-    services:["Fracture clinic","Joint replacement","Sports injury","Physiotherapy"],
-    head:"Dr. Yonas Bekele", loc:"Level 2, Suite 2D", icon:"bone" },
-  "obstetrics-gynecology": { name:"Obstetrics & Gynecology", short:"Women's health", desc:"Antenatal and postnatal care, safe delivery, family planning and gynecological surgery in a dedicated maternity wing.",
-    services:["Antenatal care","Delivery suite","Family planning","Gynecologic surgery"],
-    head:"Dr. Meron Assefa", loc:"Level 4, Maternity Wing", icon:"mother" },
-  radiology: { name:"Radiology & Imaging", short:"Diagnostic imaging", desc:"Walk-in and scheduled imaging with same-day reporting for most studies. Referrals accepted from internal and external clinicians.",
-    services:["X-ray","Ultrasound","CT scan","MRI"],
-    head:"Dr. Dawit Haile", loc:"Ground floor, Imaging Centre", icon:"scan" },
-  laboratory: { name:"Laboratory", short:"Blood work & pathology", desc:"Full-service laboratory with same-day results for routine panels and rapid testing for urgent cases.",
-    services:["Blood panels","Pathology","Rapid testing","Home sample collection"],
-    head:"Dr. Rahel Tesfaye", loc:"Ground floor, Lab A", icon:"flask" },
-  "emergency-medicine": { name:"Emergency Medicine", short:"24/7 emergency care", desc:"Round-the-clock emergency department with triage, resuscitation, trauma care and direct admission pathways.",
-    services:["24/7 triage","Trauma care","Resuscitation","Observation ward"],
-    head:"Dr. Nahom Wolde", loc:"Ground floor, Emergency Entrance", icon:"ambulance" }
-};
-
-const DOCS = [
-  { name:"Dr. Selam Tesfaye", title:"Consultant Cardiologist", dept:"cardiology", languages:["Amharic","English"], exp:14, bio:"Preventive cardiology and hypertension management.", slot:"Tomorrow, 09:30", accepting:true, photo:"https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&q=80&auto=format&fit=crop&crop=faces" },
-  { name:"Dr. Hanna Girma", title:"Consultant Pediatrician", dept:"pediatrics", languages:["Amharic","English","Oromo"], exp:11, bio:"Newborn care and childhood vaccination.", slot:"Today, 14:00", accepting:true, photo:"https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=600&q=80&auto=format&fit=crop&crop=faces" },
-  { name:"Dr. Abel Mekonnen", title:"Internist", dept:"internal-medicine", languages:["Amharic","English"], exp:9, bio:"Diabetes, hypertension and adult primary care.", slot:"Today, 16:30", accepting:true, photo:"https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=80&auto=format&fit=crop&crop=faces" },
-  { name:"Dr. Yonas Bekele", title:"Orthopedic Surgeon", dept:"orthopedics", languages:["Amharic","English"], exp:16, bio:"Joint replacement and sports injuries.", slot:"Thu, 10:00", accepting:false, photo:"https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=600&q=80&auto=format&fit=crop&crop=faces" },
-  { name:"Dr. Meron Assefa", title:"Obstetrician & Gynecologist", dept:"obstetrics-gynecology", languages:["Amharic","English"], exp:12, bio:"Antenatal care and high-risk pregnancy.", slot:"Tomorrow, 11:00", accepting:true, photo:"https://images.unsplash.com/photo-1651008376811-b90baee60c1f?w=600&q=80&auto=format&fit=crop&crop=faces" },
-  { name:"Dr. Dawit Haile", title:"Radiologist", dept:"radiology", languages:["Amharic","English"], exp:10, bio:"CT and MRI diagnostics.", slot:"Today, 13:00", accepting:true, photo:"https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=600&q=80&auto=format&fit=crop&crop=faces" },
-  { name:"Dr. Rahel Tesfaye", title:"Clinical Pathologist", dept:"laboratory", languages:["Amharic","English"], exp:8, bio:"Laboratory quality and rapid diagnostics.", slot:"Tomorrow, 08:30", accepting:true, photo:"https://images.unsplash.com/photo-1651008376811-b90baee60c1f?w=600&q=80&auto=format&fit=crop&crop=faces" },
-  { name:"Dr. Nahom Wolde", title:"Emergency Physician", dept:"emergency-medicine", languages:["Amharic","English"], exp:13, bio:"Emergency triage and trauma team lead.", slot:"Walk-in 24/7", accepting:true, photo:"https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=600&q=80&auto=format&fit=crop&crop=faces" }
+const DEPTS = [
+  { slug:"cardiology", name:"Cardiology", desc:"Preventive heart screening, echocardiography, stress testing and long-term management of heart disease.", head:"Dr. Selam Tesfaye", loc:"Level 2, Suite 2A", img:"https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?w=600&q=80&auto=format&fit=crop" },
+  { slug:"pediatrics", name:"Pediatrics", desc:"Care for newborns, children and adolescents — from well-child visits to acute pediatric emergency.", head:"Dr. Hanna Girma", loc:"Level 1, Suite 1C", img:"https://images.unsplash.com/photo-1632053002928-1919f4d93e2b?w=600&q=80&auto=format&fit=crop" },
+  { slug:"internal-medicine", name:"Internal Medicine", desc:"Adult primary care and complex chronic conditions — diabetes, respiratory disease, infectious disease.", head:"Dr. Abel Mekonnen", loc:"Level 3, Suite 3B", img:"https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&q=80&auto=format&fit=crop" },
+  { slug:"orthopedics", name:"Orthopedics", desc:"Bones, joints, sports injuries and rehabilitation. Conservative and surgical care.", head:"Dr. Yonas Bekele", loc:"Level 2, Suite 2D", img:"https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&q=80&auto=format&fit=crop" },
+  { slug:"obstetrics-gynecology", name:"Maternity", desc:"Antenatal, delivery and postnatal care in a dedicated maternity wing, plus women's health surgery.", head:"Dr. Meron Assefa", loc:"Level 4, Maternity Wing", img:"https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=600&q=80&auto=format&fit=crop" },
+  { slug:"radiology", name:"Radiology & Imaging", desc:"X-ray, ultrasound, CT and MRI diagnostics. Same-day reporting for most studies.", head:"Dr. Dawit Haile", loc:"Ground floor, Imaging Centre", img:"https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=600&q=80&auto=format&fit=crop" },
+  { slug:"laboratory", name:"Laboratory", desc:"Full-service blood work, pathology and rapid testing with same-day results.", head:"Dr. Rahel Tesfaye", loc:"Ground floor, Lab A", img:"https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=600&q=80&auto=format&fit=crop" },
+  { slug:"emergency-medicine", name:"Emergency Medicine", desc:"24/7 emergency department with triage, resuscitation, trauma care and observation.", head:"Dr. Nahom Wolde", loc:"Ground floor, Emergency Entrance", img:"https://images.unsplash.com/photo-1612277795421-9bc7706a4a34?w=600&q=80&auto=format&fit=crop" }
 ];
 
-/* ===== ICONS for services ===== */
-const SERVICE_ICONS = [
-  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>',
-  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>',
-  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>',
-  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>'
-];
-
-/* ===== RENDER ===== */
-const slug = new URLSearchParams(location.search).get('slug') || 'cardiology';
-const dept = DEPTS[slug] || DEPTS.cardiology;
-
-document.title = dept.name + ' — Horizon General Hospital';
-document.getElementById('dept-name').textContent = dept.name;
-document.getElementById('dept-desc').textContent = dept.desc;
-document.getElementById('dept-head').textContent = dept.head;
-document.getElementById('dept-loc').textContent = dept.loc;
-document.getElementById('dept-tag-label').textContent = dept.short;
-
-document.getElementById('dept-services').innerHTML = dept.services.map((s, i) => `
-  <div class="service-card reveal">
-    <div class="service-card__icon">${SERVICE_ICONS[i % SERVICE_ICONS.length]}</div>
-    <h3>${s}</h3>
-    <p>Coordinated by the ${dept.name.toLowerCase()} team.</p>
-  </div>
-`).join("");
-
-const deptDocs = DOCS.filter(d => d.dept === slug);
-if (deptDocs.length) {
-  document.getElementById('docs-section').hidden = false;
-  document.getElementById('dept-docs').innerHTML = deptDocs.map(d => {
-    const ini = d.name.replace("Dr. ", "").split(" ").map(w => w[0]).join("");
-    return `
-      <article class="doc reveal">
-        <div class="doc__img">
-          <img src="${d.photo}" alt="${d.name}" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,var(--brand-3),var(--gray-100))';this.parentElement.innerHTML='<div style=\\'display:grid;place-items:center;height:100%;font-family:var(--font-serif);font-size:3rem;color:var(--brand);\\'>${ini}</div>'" />
-          <span class="doc__badge ${d.accepting ? '' : 'waitlist'}">${d.accepting ? 'Accepting' : 'Waitlist'}</span>
-        </div>
-        <div class="doc__body">
-          <h3 class="doc__name">${d.name}</h3>
-          <p class="doc__role">${d.title}</p>
-          <p class="doc__bio">${d.bio}</p>
-          <div class="doc__meta">
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/></svg>${d.exp} yrs</span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg>${d.languages.join(" · ")}</span>
-          </div>
-          <div class="doc__footer">
-            <span class="doc__next">${d.slot}</span>
-            <a href="book.html" class="doc__cta">Book <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
-          </div>
-        </div>
-      </article>
-    `;
-  }).join("");
-}
-
-/* Other departments */
-const otherSlugs = Object.keys(DEPTS).filter(k => k !== slug).slice(0, 4);
-document.getElementById('other-depts').innerHTML = otherSlugs.map(k => `
-  <a href="department.html?slug=${k}" class="other-dept reveal">
-    ${DEPTS[k].name}
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+document.getElementById('dept-grid').innerHTML = DEPTS.map((d, i) => `
+  <a href="department.html?slug=${d.slug}" class="dept reveal">
+    <div class="dept__img">
+      <img src="${d.img}" alt="${d.name}" loading="lazy" onerror="this.style.display='none'" />
+      <span class="dept__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+    </div>
+    <div class="dept__body">
+      <h2 class="dept__name">${d.name}</h2>
+      <p class="dept__desc">${d.desc}</p>
+      <div class="dept__meta">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>${d.head}</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>${d.loc}</span>
+      </div>
+    </div>
   </a>
 `).join("");
 
-/* Observe newly-inserted reveals */
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
 </body>
