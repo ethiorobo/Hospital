@@ -121,4 +121,64 @@ a{color:inherit;text-decoration:none}button{font:inherit;color:inherit}
 
 <footer class="site-footer">
   <div class="container site-footer__grid">
-    <div><h
+    <div><h3>Horizon General Hospital</h3><p>Bole Road, Addis Ababa, Ethiopia</p><p><a href="tel:+251115550100">+251 11 555 0100</a></p></div>
+    <div><h4>Care</h4><ul><li><a href="find-a-doctor.html">Find a doctor</a></li><li><a href="departments.html">Departments</a></li><li><a href="book.html">Book a visit</a></li><li><a href="emergency.html">Emergency</a></li></ul></div>
+    <div><h4>Patients</h4><ul><li><a href="patients-visitors.html">Visiting hours</a></li><li><a href="portal.html">Pay a bill</a></li><li><a href="insurance.html">Insurance</a></li></ul></div>
+    <div><h4>Hospital</h4><ul><li><a href="about.html">About</a></li><li><a href="careers.html">Careers</a></li><li><a href="news.html">News</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+  </div>
+  <div class="site-footer__legal container">© 2025 Horizon General Hospital. In an emergency call 907.</div>
+</footer>
+
+<script>
+const hb=document.getElementById('hamburger'),mm=document.getElementById('mobile-menu');
+hb.addEventListener('click',()=>{const o=hb.getAttribute('aria-expanded')==='true';hb.setAttribute('aria-expanded',String(!o));mm.hidden=o;});
+
+const DEPTS={
+cardiology:{name:"Cardiology",desc:"Our cardiology team provides preventive heart screening, echocardiography, stress testing and ongoing management of hypertension and heart disease.",services:["ECG & echocardiography","Stress testing","Hypertension clinic","Cardiac rehabilitation"],head:"Dr. Selam Tesfaye",loc:"Level 2, Suite 2A"},
+pediatrics:{name:"Pediatrics",desc:"From well-child visits to acute care, our pediatric team looks after patients from birth to 18 years.",services:["Well-child visits","Vaccination","Neonatal care","Pediatric emergency"],head:"Dr. Hanna Girma",loc:"Level 1, Suite 1C"},
+"internal-medicine":{name:"Internal Medicine",desc:"General adult medicine covering diabetes, respiratory disease, infectious disease and multi-condition care coordination.",services:["Annual health check","Diabetes clinic","Respiratory clinic","Infectious disease"],head:"Dr. Abel Mekonnen",loc:"Level 3, Suite 3B"},
+orthopedics:{name:"Orthopedics",desc:"Orthopedic surgery and conservative care for fractures, joint pain, sports injuries and post-operative rehabilitation.",services:["Fracture clinic","Joint replacement","Sports injury","Physiotherapy"],head:"Dr. Yonas Bekele",loc:"Level 2, Suite 2D"},
+"obstetrics-gynecology":{name:"Obstetrics & Gynecology",desc:"Antenatal and postnatal care, safe delivery, family planning and gynecological surgery.",services:["Antenatal care","Delivery suite","Family planning","Gynecologic surgery"],head:"Dr. Meron Assefa",loc:"Level 4, Maternity Wing"},
+radiology:{name:"Radiology & Imaging",desc:"Walk-in and scheduled imaging with same-day reporting for most studies.",services:["X-ray","Ultrasound","CT scan","MRI"],head:"Dr. Dawit Haile",loc:"Ground floor, Imaging Centre"},
+laboratory:{name:"Laboratory",desc:"Full-service laboratory with same-day results for routine panels and rapid testing for urgent cases.",services:["Blood panels","Pathology","Rapid testing","Home sample collection"],head:"Dr. Rahel Tesfaye",loc:"Ground floor, Lab A"},
+"emergency-medicine":{name:"Emergency Medicine",desc:"Round-the-clock emergency department with triage, resuscitation, trauma care and direct admission pathways.",services:["24/7 triage","Trauma care","Resuscitation","Observation ward"],head:"Dr. Nahom Wolde",loc:"Ground floor, Emergency Entrance"}
+};
+const DOCS=[
+{name:"Dr. Selam Tesfaye",title:"Consultant Cardiologist",dept:"cardiology",languages:["Amharic","English"],exp:14,bio:"Preventive cardiology and hypertension management.",slot:"Tomorrow, 09:30",accepting:true},
+{name:"Dr. Hanna Girma",title:"Consultant Pediatrician",dept:"pediatrics",languages:["Amharic","English","Oromo"],exp:11,bio:"Newborn care and childhood vaccination.",slot:"Today, 14:00",accepting:true},
+{name:"Dr. Abel Mekonnen",title:"Internist",dept:"internal-medicine",languages:["Amharic","English"],exp:9,bio:"Diabetes, hypertension and adult primary care.",slot:"Today, 16:30",accepting:true},
+{name:"Dr. Yonas Bekele",title:"Orthopedic Surgeon",dept:"orthopedics",languages:["Amharic","English"],exp:16,bio:"Joint replacement and sports injuries.",slot:"Thu, 10:00",accepting:false},
+{name:"Dr. Meron Assefa",title:"Obstetrician & Gynecologist",dept:"obstetrics-gynecology",languages:["Amharic","English"],exp:12,bio:"Antenatal care and high-risk pregnancy.",slot:"Tomorrow, 11:00",accepting:true},
+{name:"Dr. Dawit Haile",title:"Radiologist",dept:"radiology",languages:["Amharic","English"],exp:10,bio:"CT and MRI diagnostics.",slot:"Today, 13:00",accepting:true},
+{name:"Dr. Rahel Tesfaye",title:"Clinical Pathologist",dept:"laboratory",languages:["Amharic","English"],exp:8,bio:"Laboratory quality and rapid diagnostics.",slot:"Tomorrow, 08:30",accepting:true},
+{name:"Dr. Nahom Wolde",title:"Emergency Physician",dept:"emergency-medicine",languages:["Amharic","English"],exp:13,bio:"Emergency triage and trauma team lead.",slot:"Walk-in 24/7",accepting:true}
+];
+
+const slug=new URLSearchParams(location.search).get('slug')||'cardiology';
+const d=DEPTS[slug]||DEPTS.cardiology;
+document.getElementById('dept-name').textContent=d.name;
+document.getElementById('dept-desc').textContent=d.desc;
+document.getElementById('dept-head').textContent=d.head;
+document.getElementById('dept-loc').textContent=d.loc;
+document.getElementById('dept-services').innerHTML=d.services.map(s=>`<li>${s}</li>`).join("");
+const deptDocs=DOCS.filter(x=>x.dept===slug);
+if(deptDocs.length){
+  document.getElementById('docs-section').hidden=false;
+  document.getElementById('dept-docs').innerHTML=deptDocs.map(x=>{
+    const ini=x.name.replace("Dr. ","").split(" ").map(w=>w[0]).join("");
+    return `<div class="doctor-card">
+      <div class="doctor-card__head"><div class="doctor-card__avatar">${ini}</div><div><h3>${x.name}</h3><p class="doctor-card__title">${x.title}</p></div></div>
+      <p class="doctor-card__bio">${x.bio}</p>
+      <dl class="doctor-card__meta">
+        <div><dt>Experience</dt><dd>${x.exp} yrs</dd></div>
+        <div><dt>Languages</dt><dd>${x.languages.join(", ")}</dd></div>
+        <div><dt>Next slot</dt><dd class="next">${x.slot}</dd></div>
+        <div><dt>New patients</dt><dd>${x.accepting?"Accepting":"Waitlist"}</dd></div>
+      </dl>
+      <div class="doctor-card__actions"><a href="book.html" class="btn btn--primary">Book visit</a></div>
+    </div>`;
+  }).join("");
+}
+</script>
+</body>
+</html>
