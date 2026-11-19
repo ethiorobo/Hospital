@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Emergency — Horizon General Hospital</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+*,*::before,*::after{box-sizing:border-box}*{margin:0;padding:0}
+:root{--b50:#eff8ff;--b600:#2575eb;--b700:#1d5ed8;--b800:#1e4daf;
+--s50:#f8fafc;--s100:#f1f5f9;--s200:#e2e8f0;--s300:#cbd5e1;--s400:#94a3b8;--s500:#64748b;--s600:#475569;--s700:#334155;--s800:#1e293b;--s900:#0f172a;
+--r:#dc2626;--r50:#fef2f2;--r700:#b91c1c;--em100:#d1fae5;--em800:#065f46;--am100:#fef3c7;--am800:#92400e;--rad:1rem}
+html{scroll-behavior:smooth}body{font-family:'Inter',system-ui,sans-serif;background:#fff;color:var(--s800);min-height:100vh;display:flex;flex-direction:column}
+a{color:inherit;text-decoration:none}button{font:inherit;color:inherit}
+.container{width:100%;max-width:1152px;margin-inline:auto;padding-inline:1rem}.app{flex:1}
+.emergency-bar{background:var(--r);color:#fff;font-size:.875rem}
+.emergency-bar__inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.5rem;padding-block:.5rem}
+.emergency-bar__text a{font-weight:600;text-decoration:underline}
+.emergency-bar__link{text-decoration:underline;text-underline-offset:2px}
+.site-header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--s200)}
+.site-header__inner{display:flex;align-items:center;justify-content:space-between;padding-block:.75rem}
+.brand{display:flex;align-items:center;gap:.5rem}
+.brand__mark{display:grid;place-items:center;width:2.25rem;height:2.25rem;border-radius:.75rem;background:var(--b700);color:#fff;font-weight:700}
+.brand__name{font-weight:600;color:var(--s900)}
+.nav-desktop{display:none;gap:1.25rem;font-size:.875rem;font-weight:500;color:var(--s600)}
+.nav-desktop a:hover{color:var(--b700)}
+.hamburger{display:inline-flex;flex-direction:column;justify-content:center;gap:5px;width:2.5rem;height:2.5rem;background:transparent;border:0;border-radius:.5rem;cursor:pointer;padding:.5rem}
+.hamburger__bar{display:block;width:100%;height:2px;border-radius:2px;background:var(--s800);transition:transform .25s,opacity .2s}
+.hamburger[aria-expanded="true"] .hamburger__bar:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger[aria-expanded="true"] .hamburger__bar:nth-child(2){opacity:0}
+.hamburger[aria-expanded="true"] .hamburger__bar:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{border-top:1px solid var(--s200);background:#fff}.mobile-menu[hidden]{display:none}
+.mobile-menu__nav{display:flex;flex-direction:column;gap:.25rem;padding:.75rem 1rem}
+.mobile-menu__nav a{display:block;padding:.75rem .5rem;font-size:.9375rem;font-weight:500;color:var(--s700);border-radius:.5rem}
+.mobile-menu__nav a:hover{background:var(--s50)}.mobile-menu__danger{color:var(--r700)!important}
+@media(min-width:768px){.nav-desktop{display:flex}.hamburger{display:none}}
+.page{padding-block:3rem}
+.er-hero{padding:2rem;border-radius:1.5rem;background:var(--r);color:#fff}
+@media(min-width:768px){.er-hero{padding:3rem}}
+.er-hero h1{font-size:clamp(1.875rem,4vw,2.25rem);font-weight:600}
+.er-hero p{margin-top:.5rem;max-width:40rem;color:#fee2e2}
+.er-hero a{font-weight:600;text-decoration:underline}
+.er-actions{margin-top:1.5rem;display:flex;flex-wrap:wrap;gap:.75rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:.75rem 1.25rem;font-size:.875rem;font-weight:500;border-radius:.5rem;border:1px solid transparent;cursor:pointer}
+.btn--white{background:#fff;color:var(--r700)}.btn--white:hover{background:var(--r50)}
+.btn--outline{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.4)}.btn--outline:hover{background:rgba(255,255,255,.1)}
+.btn--primary{background:var(--b700);color:#fff;padding:.625rem 1rem}
+.er-table{width:100%;border-collapse:collapse;font-size:.875rem;margin-top:1rem;border-radius:var(--rad);overflow:hidden;border:1px solid var(--s200)}
+.er-table thead{background:var(--s50);font-size:.6875rem;text-transform:uppercase;letter-spacing:.05em;color:var(--s500)}
+.er-table th,.er-table td{padding:.75rem 1rem;text-align:left}
+.er-table tbody tr{border-top:1px solid var(--s200)}
+.status-badge{padding:.25rem .625rem;border-radius:999px;font-size:.75rem;font-weight:500}
+.status-badge--low{background:var(--em100);color:var(--em800)}
+.status-badge--moderate{background:var(--am100);color:var(--am800)}
+.grid-2{display:grid;gap:1.5rem;grid-template-columns:1fr;margin-top:3rem}
+@media(min-width:768px){.grid-2{grid-template-columns:repeat(2,1fr)}}
+.box{padding:1.5rem;border:1px solid var(--s200);border-radius:var(--rad)}
+.box h2{font-size:1.125rem;font-weight:600;color:var(--s900)}
+.box p{margin-top:.5rem;font-size:.875rem;color:var(--s600)}
+.flag-list{list-style:none;margin-top:.75rem}
+.flag-list li{display:flex;gap:.5rem;margin-top:.5rem;font-size:.875rem;color:var(--s600)}
+.flag-list li::before{content:'';flex-shrink:0;width:6px;height:6px;margin-top:.5rem;border-radius:999px;background:var(--r)}
+.site-footer{margin-top:6rem;border-top:1px solid var(--s200);background:var(--s50)}
+.site-footer__grid{display:grid;gap:2rem;padding-block:3rem;grid-template-columns:1fr}
+@media(min-width:640px){.site-footer__grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.site-footer__grid{grid-template-columns:repeat(4,1fr)}}
+.site-footer h3,.site-footer h4{font-weight:600;color:var(--s900)}
+.site-footer h4{font-size:.875rem}
+.site-footer p,.site-footer li{font-size:.875rem;color:var(--s600);margin-top:.5rem}
+.site-footer ul{list-style:none}
+.site-footer__legal{padding-block:1rem;font-size:.75rem;text-align:center;color:var(--s500);border-top:1px solid var(--s200)}
+</style>
+</head>
+<body>
+
+<div class="emergency-bar"><div class="container emergency-bar__inner"><span class="emergency-bar__text">Emergency? Call <a href="tel:907">907</a></span><a href="emergency.html" class="emergency-bar__link">ER wait times →</a></div></div>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a href="index.html" class="brand"><span class="brand__mark">H</span><span class="brand__name">Horizon General Hospital</span></a>
+    <nav class="nav-desktop">
+      <a href="find-a-doctor.html">Find a doctor</a><a href="departments.html">Departments</a><a href="services.html">Services</a>
+      <a href="book.html">Book a visit</a><a href="patients-visitors.html">Patients &amp; visitors</a><a href="about.html">About</a><a href="portal.html">Patient portal</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span class="hamburger__bar"></span><span class="hamburger__bar"></span><span class="hamburger__bar"></span></button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <nav class="mobile-menu__nav">
+      <a href="find-a-doctor.html">Find a doctor</a><a href="departments.html">Departments</a><a href="services.html">Services</a>
+      <a href="book.html">Book a visit</a><a href="patients-visitors.html">Patients &amp; visitors</a><a href="about.html">About</a>
+      <a href="portal.html">Patient portal</a><a href="contact.html">Contact</a><a href="careers.html">Careers</a>
+      <a href="insurance.html">Insurance</a><a href="news.html">News</a><a href="emergency.html" class="mobile-menu__danger">Emergency</a>
+    </nav>
+  </div>
+</header>
+
+<main class="app">
+  <div class="page">
+    <div class="container">
+      <div class="er-hero">
+        <h1>Emergency</h1>
+        <p>If someone is unconscious, bleeding heavily, has chest pain, difficulty breathing, or has had a serious accident — call <a href="tel:907">907</a> immediately.</p>
+        <div class="er-actions">
+          <a href="tel:907" class="btn btn--white">Call ambulance — 907</a>
+          <a href="tel:991" class="btn btn--outline">Police — 991</a>
+          <a href="tel:939" class="btn btn--outline">Fire — 939</a>
+        </div>
+      </div>
+      <section style="margin-top:3rem">
+        <h2 style="font-size:1.25rem;font-weight:600;color:var(--s900)">Live ER wait times</h2>
+        <p style="margin-top:.25rem;font-size:.875rem;color:var(--s500)">Estimates update every 15 minutes. In a life-threatening emergency, do not wait.</p>
+        <table class="er-table">
+          <thead><tr><th>Location</th><th>Estimated wait</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>Main ER — Ground Floor</td><td style="font-weight:500;color:var(--s900)">~15 min</td><td><span class="status-badge status-badge--low">Low</span></td></tr>
+            <tr><td>Pediatric ER — Level 1</td><td style="font-weight:500;color:var(--s900)">~10 min</td><td><span class="status-badge status-badge--low">Low</span></td></tr>
+           
