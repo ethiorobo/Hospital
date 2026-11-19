@@ -3,322 +3,310 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Horizon — Care that starts with calm</title>
+<title>Horizon General Hospital — Care that starts with calm</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+*,*::before,*::after{box-sizing:border-box}*{margin:0;padding:0}
 :root{
-  --bg:#070d14;
-  --bg-2:#0b1420;
-  --panel:#0e1a28;
-  --panel-2:#122032;
-  --line:rgba(255,255,255,.08);
-  --line-2:rgba(255,255,255,.14);
-  --ink:#e8eef5;
-  --ink-2:#a4b4c6;
-  --ink-3:#5b6d82;
-  --teal:#5eebd4;
-  --teal-2:#22c9b3;
-  --blue:#4f8bff;
-  --rose:#ff6b8a;
-  --cream:#f5ecd9;
-  --serif:'Instrument Serif',Georgia,serif;
-  --sans:'Inter',system-ui,sans-serif;
+  --ink:#0b1b2b;--ink-2:#13293d;
+  --brand:#0e6fbe;--brand-2:#0a5a9c;--brand-3:#e6f2fb;
+  --accent:#14b8a6;--accent-soft:#e6fffb;
+  --sand:#f6f1e8;--sand-2:#efe6d6;
+  --paper:#ffffff;--gray-50:#f7fafc;--gray-100:#eef2f7;
+  --gray-200:#dfe6ee;--gray-300:#c4cfdb;--gray-500:#6b7c8f;
+  --gray-600:#4b5e72;--gray-700:#2f4156;--gray-800:#1f3145;
+  --red:#e11d48;
+  --radius:1.25rem;--radius-lg:2rem;
+  --shadow-sm:0 1px 2px rgba(11,27,43,.06),0 1px 3px rgba(11,27,43,.04);
+  --shadow-md:0 10px 30px -12px rgba(11,27,43,.18),0 4px 12px -4px rgba(11,27,43,.08);
+  --shadow-lg:0 30px 60px -20px rgba(11,27,43,.25),0 12px 24px -8px rgba(11,27,43,.12);
+  --font-serif:'Fraunces',Georgia,serif;
+  --font-sans:'Inter',system-ui,-apple-system,sans-serif;
 }
-html{scroll-behavior:smooth}
-body{font-family:var(--sans);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5;overflow-x:hidden}
-a{color:inherit;text-decoration:none}
-button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
-img,svg{display:block;max-width:100%}
-::selection{background:var(--teal);color:var(--bg)}
-.container{width:100%;max-width:1320px;margin-inline:auto;padding-inline:1.5rem}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--font-sans);background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.55;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:pointer;background:none;border:none}
+img{display:block;max-width:100%}
+a:focus-visible,button:focus-visible{outline:2px solid var(--brand);outline-offset:3px;border-radius:.5rem}
+.container{width:100%;max-width:1240px;margin-inline:auto;padding-inline:1.5rem}
+.app{flex:1}
 
-/* ============ AMBIENT MESH ============ */
-.mesh{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
-.mesh__blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.45;will-change:transform}
-.mesh__blob--1{width:600px;height:600px;background:radial-gradient(circle,#22c9b3,transparent 70%);top:-200px;left:-150px;animation:float1 24s ease-in-out infinite}
-.mesh__blob--2{width:700px;height:700px;background:radial-gradient(circle,#4f8bff,transparent 70%);top:30%;right:-250px;animation:float2 28s ease-in-out infinite}
-.mesh__blob--3{width:500px;height:500px;background:radial-gradient(circle,#ff6b8a,transparent 70%);bottom:-150px;left:20%;opacity:.25;animation:float3 32s ease-in-out infinite}
-@keyframes float1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(80px,60px) scale(1.15)}}
-@keyframes float2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-100px,80px) scale(.9)}}
-@keyframes float3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(60px,-100px) scale(1.2)}}
+/* EMERGENCY STRIP */
+.emergency{background:var(--ink);color:#fff;font-size:.8125rem;letter-spacing:.01em}
+.emergency__inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.75rem;padding-block:.625rem}
+.emergency__left{display:flex;align-items:center;gap:.625rem}
+.emergency__pulse{width:.5rem;height:.5rem;border-radius:50%;background:#ff4d6a;box-shadow:0 0 0 0 rgba(255,77,106,.7);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,77,106,.7)}70%{box-shadow:0 0 0 10px rgba(255,77,106,0)}100%{box-shadow:0 0 0 0 rgba(255,77,106,0)}}
+.emergency__left b{font-weight:600}
+.emergency__left a{color:#fff;text-decoration:underline;text-underline-offset:3px;font-weight:600}
+.emergency__right{display:flex;align-items:center;gap:1rem}
+.emergency__link{color:#c9d6e3;display:flex;align-items:center;gap:.375rem;transition:color .2s}
+.emergency__link:hover{color:#fff}
+.emergency__link svg{width:.875rem;height:.875rem}
 
-/* ============ GRAIN ============ */
-body::before{content:'';position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.035;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-
-/* ============ EMERGENCY RIBBON ============ */
-.ribbon{position:relative;z-index:50;background:linear-gradient(90deg,#1a0a12,#2a0f1a);border-bottom:1px solid rgba(255,107,138,.2);font-size:.8125rem;letter-spacing:.01em}
-.ribbon__inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.75rem;padding-block:.625rem}
-.ribbon__left{display:flex;align-items:center;gap:.625rem;color:#fbc8d3}
-.ribbon__dot{width:.5rem;height:.5rem;border-radius:50%;background:var(--rose);box-shadow:0 0 12px var(--rose);animation:pulse 1.8s infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.85)}}
-.ribbon__left b{color:#fff;font-weight:600}
-.ribbon__left a{color:#fff;text-decoration:underline;text-underline-offset:3px;font-weight:600}
-.ribbon__right a{color:#fbc8d3;display:inline-flex;align-items:center;gap:.375rem;transition:color .2s}
-.ribbon__right a:hover{color:#fff}
-
-/* ============ HEADER ============ */
-.hdr{position:sticky;top:0;z-index:60;background:rgba(7,13,20,.7);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid transparent;transition:border-color .3s, background .3s}
-.hdr.scrolled{border-color:var(--line);background:rgba(7,13,20,.9)}
-.hdr__inner{display:flex;align-items:center;justify-content:space-between;padding-block:1rem;gap:1rem}
-.logo{display:flex;align-items:center;gap:.625rem}
-.logo__mark{width:2.5rem;height:2.5rem;border-radius:.75rem;display:grid;place-items:center;background:linear-gradient(135deg,var(--teal),var(--blue));color:var(--bg);box-shadow:0 0 24px rgba(94,235,212,.35)}
+/* HEADER */
+.hdr{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid transparent;transition:border-color .3s, box-shadow .3s, background .3s}
+.hdr.is-scrolled{border-color:var(--gray-200);box-shadow:0 4px 20px -8px rgba(11,27,43,.08);background:rgba(255,255,255,.95)}
+.hdr__inner{display:flex;align-items:center;justify-content:space-between;padding-block:.875rem;gap:1rem}
+.logo{display:flex;align-items:center;gap:.625rem;flex-shrink:0}
+.logo__mark{width:2.5rem;height:2.5rem;display:grid;place-items:center;background:linear-gradient(135deg,var(--brand),var(--brand-2));border-radius:.875rem;color:#fff;box-shadow:0 8px 20px -8px rgba(14,111,190,.5)}
 .logo__mark svg{width:1.25rem;height:1.25rem}
-.logo__text{display:flex;flex-direction:column;line-height:1.05}
-.logo__name{font-family:var(--serif);font-style:italic;font-size:1.5rem;color:#fff;letter-spacing:-.01em}
-.logo__sub{font-size:.625rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3);font-weight:500;margin-top:.125rem}
-.nav{display:none;gap:2rem;align-items:center}
-.nav a{font-size:.875rem;font-weight:500;color:var(--ink-2);transition:color .2s;position:relative}
-.nav a:hover{color:var(--teal)}
-.nav a::after{content:'';position:absolute;left:0;right:0;bottom:-6px;height:1px;background:var(--teal);transform:scaleX(0);transform-origin:left;transition:transform .3s}
-.nav a:hover::after{transform:scaleX(1)}
-.hdr__right{display:flex;align-items:center;gap:.5rem}
-.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.25rem;border-radius:999px;font-size:.875rem;font-weight:600;transition:all .25s;white-space:nowrap;border:1px solid transparent;cursor:pointer}
-.btn--primary{background:var(--teal);color:var(--bg);box-shadow:0 0 0 rgba(94,235,212,0)}
-.btn--primary:hover{background:#fff;box-shadow:0 8px 32px rgba(94,235,212,.4);transform:translateY(-1px)}
-.btn--ghost{border-color:var(--line-2);color:var(--ink)}
-.btn--ghost:hover{border-color:var(--teal);color:var(--teal)}
-.btn--lg{padding:1rem 1.75rem;font-size:.9375rem}
+.logo__text{display:flex;flex-direction:column;line-height:1.1}
+.logo__name{font-family:var(--font-serif);font-weight:600;font-size:1.125rem;letter-spacing:-.01em;color:var(--ink)}
+.logo__sub{font-size:.6875rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-500);font-weight:500}
+.nav{display:none;gap:1.5rem;align-items:center}
+.nav a{font-size:.875rem;font-weight:500;color:var(--gray-700);position:relative;padding:.25rem 0;transition:color .2s}
+.nav a::after{content:'';position:absolute;left:0;bottom:-2px;height:2px;width:0;background:var(--brand);transition:width .25s ease}
+.nav a:hover{color:var(--brand)}
+.nav a:hover::after{width:100%}
+.hdr__actions{display:flex;align-items:center;gap:.5rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.75rem 1.25rem;border-radius:999px;font-size:.875rem;font-weight:600;letter-spacing:-.005em;transition:transform .2s, background .2s, box-shadow .2s;border:1px solid transparent;white-space:nowrap;cursor:pointer}
+.btn--primary{background:var(--ink);color:#fff}
+.btn--primary:hover{background:var(--brand);transform:translateY(-1px);box-shadow:0 12px 24px -12px rgba(14,111,190,.6)}
+.btn--ghost{border-color:var(--gray-200);color:var(--ink);background:#fff}
+.btn--ghost:hover{border-color:var(--ink);transform:translateY(-1px)}
+.btn--light{background:#fff;color:var(--ink)}
+.btn--light:hover{background:var(--sand);transform:translateY(-1px)}
+.btn--accent{background:var(--accent);color:#fff}
+.btn--accent:hover{background:#0fa396;transform:translateY(-1px);box-shadow:0 12px 24px -12px rgba(20,184,166,.6)}
 .btn svg{width:1rem;height:1rem}
-.burger{display:grid;place-items:center;width:2.75rem;height:2.75rem;border-radius:.75rem;border:1px solid var(--line-2);background:rgba(255,255,255,.02)}
-.burger:hover{border-color:var(--teal)}
-.burger svg{width:1.125rem;height:1.125rem}
-@media(min-width:1024px){.nav{display:flex}.burger{display:none}.hdr__right .btn--ghost{display:inline-flex}}
+.hdr .btn--primary{padding:.625rem 1rem;font-size:.8125rem}
+.burger{display:grid;place-items:center;width:2.5rem;height:2.5rem;border-radius:.75rem;border:1px solid var(--gray-200);background:#fff}
+.burger svg{width:1.125rem;height:1.125rem;stroke:var(--ink)}
+.burger:hover{background:var(--gray-50)}
+@media(min-width:960px){.nav{display:flex}.burger{display:none}}
 
-/* ============ HERO ============ */
-.hero{position:relative;z-index:2;min-height:calc(100vh - 100px);display:flex;align-items:center;padding-block:3rem}
-.hero__inner{display:grid;gap:3rem;align-items:center;width:100%}
-@media(min-width:1024px){.hero__inner{grid-template-columns:1.15fr 1fr;gap:4rem}}
-.hero__eyebrow{display:inline-flex;align-items:center;gap:.5rem;padding:.375rem .875rem .375rem .5rem;background:rgba(94,235,212,.08);border:1px solid rgba(94,235,212,.25);border-radius:999px;font-size:.75rem;font-weight:500;color:var(--teal);letter-spacing:.02em}
-.hero__eyebrow span:first-child{width:1.25rem;height:1.25rem;border-radius:50%;background:rgba(94,235,212,.15);display:grid;place-items:center}
-.hero__eyebrow svg{width:.75rem;height:.75rem}
-.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(3rem,7vw,6rem);line-height:.95;letter-spacing:-.03em;margin-top:1.5rem;color:#fff}
-.hero h1 em{font-style:italic;color:var(--teal);position:relative;display:inline-block}
-.hero h1 em::after{content:'';position:absolute;left:0;right:0;bottom:.05em;height:.08em;background:linear-gradient(90deg,var(--teal),transparent);border-radius:2px}
-.hero p{font-size:clamp(1.0625rem,1.4vw,1.25rem);color:var(--ink-2);max-width:34rem;margin-top:1.75rem;line-height:1.6}
-.hero__cta{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2.5rem}
-.hero__trust{display:flex;align-items:center;gap:1.25rem;margin-top:3rem;padding-top:2rem;border-top:1px solid var(--line)}
+/* DRAWER */
+.drawer{position:fixed;inset:0;background:rgba(11,27,43,.5);backdrop-filter:blur(4px);z-index:80;opacity:0;pointer-events:none;transition:opacity .3s}
+.drawer.is-open{opacity:1;pointer-events:auto}
+.drawer__panel{position:absolute;top:0;right:0;bottom:0;width:min(340px,88vw);background:#fff;transform:translateX(100%);transition:transform .35s cubic-bezier(.16,1,.3,1);display:flex;flex-direction:column;padding:1.5rem;overflow-y:auto}
+.drawer.is-open .drawer__panel{transform:none}
+.drawer__head{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem}
+.drawer__close{width:2.25rem;height:2.25rem;display:grid;place-items:center;border-radius:.75rem;border:1px solid var(--gray-200)}
+.drawer__close:hover{background:var(--gray-50)}
+.drawer__nav{display:flex;flex-direction:column;gap:.25rem}
+.drawer__nav a{padding:.875rem .75rem;border-radius:.75rem;font-size:1rem;font-weight:500;color:var(--gray-800);display:flex;justify-content:space-between;align-items:center;transition:background .2s}
+.drawer__nav a:hover{background:var(--gray-50)}
+.drawer__nav a svg{width:1rem;height:1rem;color:var(--gray-300)}
+.drawer__nav a.danger{color:var(--red);margin-top:.5rem;border-top:1px solid var(--gray-200);padding-top:1rem}
+.drawer__nav a.danger:hover{background:#fff1f3}
+.drawer__cta{margin-top:1.5rem;display:flex;flex-direction:column;gap:.5rem}
+.drawer__cta .btn{width:100%}
+.drawer__foot{margin-top:auto;padding-top:1.5rem;border-top:1px solid var(--gray-200);font-size:.8125rem;color:var(--gray-500);line-height:1.6}
+.drawer__foot a{color:var(--brand);text-decoration:underline}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;background:linear-gradient(180deg,#fbfdff 0%,#f4f9ff 55%,#fbfdff 100%)}
+.hero__bg{position:absolute;inset:0;pointer-events:none;background:
+  radial-gradient(60rem 40rem at 85% -10%, rgba(20,184,166,.10), transparent 60%),
+  radial-gradient(50rem 40rem at 5% 20%, rgba(14,111,190,.10), transparent 60%);}
+.hero__inner{position:relative;padding-block:4rem 5rem;display:grid;gap:3rem;align-items:center}
+@media(min-width:1024px){.hero__inner{grid-template-columns:1.05fr .95fr;gap:4rem;padding-block:5rem 6rem}}
+.eyebrow{display:inline-flex;align-items:center;gap:.5rem;padding:.375rem .75rem .375rem .5rem;background:#fff;border:1px solid var(--gray-200);border-radius:999px;font-size:.75rem;font-weight:500;color:var(--gray-600);box-shadow:var(--shadow-sm)}
+.eyebrow__dot{width:1.25rem;height:1.25rem;border-radius:50%;background:var(--accent-soft);display:grid;place-items:center}
+.eyebrow__dot svg{width:.75rem;height:.75rem;stroke:var(--accent)}
+.hero h1{font-family:var(--font-serif);font-weight:500;font-size:clamp(2.5rem,5.5vw,4.25rem);line-height:1.02;letter-spacing:-.02em;color:var(--ink);margin-top:1.25rem}
+.hero h1 em{font-style:italic;color:var(--brand);position:relative;white-space:nowrap}
+.hero h1 em::after{content:'';position:absolute;left:0;right:0;bottom:.06em;height:.12em;background:linear-gradient(90deg,rgba(20,184,166,.35),rgba(20,184,166,0));border-radius:2px;z-index:-1}
+.hero__lead{margin-top:1.5rem;font-size:clamp(1.0625rem,1.4vw,1.1875rem);color:var(--gray-600);max-width:34rem;line-height:1.6}
+.hero__cta{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
+.hero__cta .btn{padding:.875rem 1.5rem;font-size:.9375rem}
+.hero__trust{margin-top:2.5rem;display:flex;align-items:center;gap:1rem;padding-top:2rem;border-top:1px solid var(--gray-200)}
 .hero__avatars{display:flex}
-.hero__avatars div{width:2.5rem;height:2.5rem;border-radius:50%;border:2px solid var(--bg);margin-left:-.625rem;display:grid;place-items:center;font-weight:600;font-size:.8125rem;color:var(--bg)}
-.hero__avatars div:first-child{margin-left:0}
-.hero__avatars div:nth-child(1){background:linear-gradient(135deg,#5eebd4,#4f8bff)}
-.hero__avatars div:nth-child(2){background:linear-gradient(135deg,#ff6b8a,#ffb84f)}
-.hero__avatars div:nth-child(3){background:linear-gradient(135deg,#a78bfa,#5eebd4)}
-.hero__avatars div:nth-child(4){background:linear-gradient(135deg,#fbbf24,#ff6b8a)}
-.hero__trust-text{font-size:.875rem;color:var(--ink-2);line-height:1.4}
-.hero__trust-text strong{color:#fff;font-weight:600}
-.hero__trust-text .stars{color:#fbbf24;letter-spacing:2px}
+.hero__avatars img{width:2.25rem;height:2.25rem;border-radius:50%;border:2px solid #fff;object-fit:cover;margin-left:-.5rem;box-shadow:var(--shadow-sm)}
+.hero__avatars img:first-child{margin-left:0}
+.hero__trust-text{font-size:.875rem;color:var(--gray-600);line-height:1.4}
+.hero__trust-text strong{color:var(--ink);font-weight:600}
+.hero__trust-text .stars{color:#f59e0b;letter-spacing:1px;font-size:.875rem}
 
-/* ============ HERO VISUAL (SVG art) ============ */
-.hero__visual{position:relative;aspect-ratio:1/1;max-width:560px;margin-inline:auto;width:100%}
-.hero__art{width:100%;height:100%;animation:art-rotate 60s linear infinite}
-@keyframes art-rotate{to{transform:rotate(360deg)}}
-.hero__center{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
-.hero__pulse{width:60%;height:60%;border-radius:50%;background:radial-gradient(circle,rgba(94,235,212,.15),transparent 65%);animation:pulse-big 4s ease-in-out infinite}
-@keyframes pulse-big{0%,100%{transform:scale(1);opacity:.6}50%{transform:scale(1.1);opacity:.3}}
-.hero__float{position:absolute;background:rgba(14,26,40,.85);backdrop-filter:blur(20px);border:1px solid var(--line-2);border-radius:1rem;padding:.875rem 1rem;display:flex;align-items:center;gap:.75rem;box-shadow:0 20px 40px rgba(0,0,0,.5)}
-.hero__float--1{top:8%;right:0;animation:float-y 6s ease-in-out infinite}
-.hero__float--2{bottom:12%;left:0;animation:float-y 6s ease-in-out infinite .8s}
-.hero__float--3{bottom:35%;right:5%;animation:float-y 6s ease-in-out infinite 1.6s}
-@keyframes float-y{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
-.hero__float-icon{width:2.25rem;height:2.25rem;border-radius:.625rem;display:grid;place-items:center;flex-shrink:0}
-.hero__float-icon--teal{background:rgba(94,235,212,.15);color:var(--teal)}
-.hero__float-icon--rose{background:rgba(255,107,138,.15);color:var(--rose)}
-.hero__float-icon--blue{background:rgba(79,139,255,.15);color:var(--blue)}
-.hero__float-icon svg{width:1.125rem;height:1.125rem}
-.hero__float-label{font-size:.625rem;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-3);font-weight:500}
-.hero__float-value{font-size:.875rem;font-weight:600;color:#fff;margin-top:.125rem}
-.hero__float-value.live{color:var(--teal);display:flex;align-items:center;gap:.375rem}
-.hero__float-value.live::before{content:'';width:.375rem;height:.375rem;border-radius:50%;background:var(--teal);animation:pulse 1.8s infinite}
+/* HERO VISUAL */
+.hero__visual{position:relative;min-height:28rem;display:grid;place-items:center}
+.hero__main-img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:var(--radius-lg);box-shadow:var(--shadow-lg)}
+.hero__card{position:absolute;background:#fff;border-radius:var(--radius);box-shadow:var(--shadow-lg);padding:1rem 1.125rem;border:1px solid var(--gray-200);display:flex;align-items:center;gap:.75rem;animation:floatCard 6s ease-in-out infinite}
+.hero__card--wait{top:1.5rem;right:-1rem;animation-delay:0s}
+.hero__card--doctor{bottom:1.5rem;left:-1rem;animation-delay:1.5s}
+@keyframes floatCard{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@media(max-width:1024px){.hero__card--wait{right:0}.hero__card--doctor{left:0}}
+.hero__card-icon{width:2.5rem;height:2.5rem;border-radius:.875rem;display:grid;place-items:center;flex-shrink:0}
+.hero__card-icon--teal{background:var(--accent-soft);color:#0fa396}
+.hero__card-icon--blue{background:var(--brand-3);color:var(--brand)}
+.hero__card-icon svg{width:1.125rem;height:1.125rem}
+.hero__card-label{font-size:.6875rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gray-500);font-weight:500}
+.hero__card-value{font-size:.9375rem;font-weight:600;color:var(--ink);margin-top:.125rem}
+.hero__card-value.live{color:#0fa396;display:flex;align-items:center;gap:.375rem}
+.hero__card-value.live::before{content:'';width:.5rem;height:.5rem;border-radius:50%;background:#0fa396;animation:pulse 2s infinite}
+.hero__badge{position:absolute;top:-1rem;left:2rem;background:var(--ink);color:#fff;padding:.5rem 1rem;border-radius:999px;font-size:.75rem;font-weight:600;letter-spacing:.02em;display:flex;align-items:center;gap:.5rem;box-shadow:var(--shadow-md);z-index:2}
+.hero__badge svg{width:.875rem;height:.875rem;color:var(--accent)}
 
-/* ============ SCROLL CUE ============ */
-.scroll-cue{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;color:var(--ink-3);font-size:.6875rem;letter-spacing:.15em;text-transform:uppercase}
-.scroll-cue__line{width:1px;height:2rem;background:linear-gradient(to bottom,var(--teal),transparent);animation:scroll-line 2s ease-in-out infinite}
-@keyframes scroll-line{0%,100%{transform:scaleY(1);transform-origin:top}50%{transform:scaleY(.3);transform-origin:top}}
-@media(max-width:1024px){.scroll-cue{display:none}}
+/* QUICK ACTIONS */
+.quick{position:relative;margin-top:-3rem;z-index:10}
+.quick__grid{display:grid;gap:.75rem;grid-template-columns:1fr}
+@media(min-width:640px){.quick__grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.quick__grid{grid-template-columns:repeat(4,1fr)}}
+.quick__item{background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius);padding:1.25rem;display:flex;flex-direction:column;gap:.75rem;transition:transform .25s, border-color .25s, box-shadow .25s;position:relative;overflow:hidden}
+.quick__item::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--brand-3),transparent);opacity:0;transition:opacity .3s;pointer-events:none}
+.quick__item:hover{transform:translateY(-3px);border-color:transparent;box-shadow:var(--shadow-md)}
+.quick__item:hover::before{opacity:1}
+.quick__item > *{position:relative}
+.quick__icon{width:2.5rem;height:2.5rem;border-radius:.875rem;display:grid;place-items:center;background:var(--brand-3);color:var(--brand);transition:background .25s, color .25s}
+.quick__item:hover .quick__icon{background:var(--brand);color:#fff}
+.quick__icon svg{width:1.125rem;height:1.125rem}
+.quick__title{font-weight:600;font-size:1rem;color:var(--ink)}
+.quick__desc{font-size:.8125rem;color:var(--gray-500);line-height:1.5}
+.quick__arrow{position:absolute;top:1.25rem;right:1.25rem;width:1.25rem;height:1.25rem;stroke:var(--gray-300);transition:stroke .25s, transform .25s}
+.quick__item:hover .quick__arrow{stroke:var(--brand);transform:translate(2px,-2px)}
 
-/* ============ MARQUEE ============ */
-.marquee{position:relative;z-index:2;border-block:1px solid var(--line);padding-block:1.5rem;overflow:hidden;background:rgba(7,13,20,.6);backdrop-filter:blur(10px)}
-.marquee__track{display:flex;gap:4rem;animation:marquee 40s linear infinite;width:max-content}
-.marquee__item{display:flex;align-items:center;gap:4rem;color:var(--ink-3);font-size:.875rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
-.marquee__item::after{content:'✦';color:var(--teal);font-size:1rem;opacity:.6}
-@keyframes marquee{to{transform:translateX(-50%)}}
-
-/* ============ SECTIONS ============ */
-.section{position:relative;z-index:2;padding-block:7rem}
-.kicker{display:inline-flex;align-items:center;gap:.5rem;font-size:.6875rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--teal)}
+/* SECTION HEADS */
+.section{padding-block:5rem}
+.section--tint{background:var(--sand)}
+.kicker{display:inline-flex;align-items:center;gap:.5rem;font-size:.75rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--brand)}
 .kicker::before{content:'';width:1.5rem;height:1px;background:currentColor}
-.section-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:2rem;margin-bottom:3rem}
-.section-head h2{font-family:var(--serif);font-size:clamp(2.25rem,4.5vw,4rem);font-weight:400;line-height:1;letter-spacing:-.02em;color:#fff;margin-top:1rem;max-width:36rem}
-.section-head p{color:var(--ink-2);max-width:30rem;margin-top:1rem;font-size:1.0625rem}
-.section-head .link{font-size:.875rem;font-weight:600;color:var(--teal);display:inline-flex;align-items:center;gap:.5rem;white-space:nowrap;padding-bottom:.25rem;border-bottom:1px solid transparent;transition:border-color .2s}
-.section-head .link:hover{border-color:var(--teal)}
+.section-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:1.5rem;margin-bottom:2.5rem}
+.section-head h2{font-family:var(--font-serif);font-size:clamp(1.875rem,3vw,2.5rem);font-weight:500;letter-spacing:-.015em;line-height:1.1;color:var(--ink);margin-top:.75rem;max-width:32rem}
+.section-head p{color:var(--gray-600);max-width:30rem;margin-top:.75rem}
+.section-head .link{font-size:.875rem;font-weight:600;color:var(--brand);display:inline-flex;align-items:center;gap:.375rem;white-space:nowrap}
 .section-head .link svg{width:1rem;height:1rem;transition:transform .2s}
-.section-head .link:hover svg{transform:translateX(4px)}
+.section-head .link:hover svg{transform:translateX(3px)}
 
-/* ============ DEPARTMENTS ============ */
+/* DEPARTMENTS */
 .depts{display:grid;gap:1rem;grid-template-columns:1fr}
 @media(min-width:640px){.depts{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:1024px){.depts{grid-template-columns:repeat(4,1fr)}}
-.dept{position:relative;border-radius:1.25rem;overflow:hidden;aspect-ratio:3/4;background:var(--panel);border:1px solid var(--line);display:flex;flex-direction:column;justify-content:flex-end;padding:1.5rem;transition:border-color .4s, transform .4s;isolation:isolate}
-.dept:hover{border-color:var(--teal);transform:translateY(-6px)}
-.dept__bg{position:absolute;inset:0;z-index:-1;transition:transform .6s ease, opacity .4s}
-.dept:hover .dept__bg{transform:scale(1.08)}
-.dept__bg svg{width:100%;height:100%}
-.dept__glow{position:absolute;inset:0;z-index:-1;opacity:0;transition:opacity .4s;background:radial-gradient(circle at 50% 100%,rgba(94,235,212,.3),transparent 70%)}
-.dept:hover .dept__glow{opacity:1}
-.dept__num{position:absolute;top:1.25rem;left:1.5rem;font-family:var(--serif);font-size:3rem;font-style:italic;color:rgba(255,255,255,.15);line-height:1}
-.dept h3{font-family:var(--serif);font-size:1.5rem;font-weight:400;color:#fff;letter-spacing:-.01em;position:relative}
-.dept p{font-size:.8125rem;color:var(--ink-2);margin-top:.25rem;position:relative;text-transform:uppercase;letter-spacing:.1em}
-.dept__arrow{position:absolute;top:1.25rem;right:1.25rem;width:2.25rem;height:2.25rem;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid var(--line-2);display:grid;place-items:center;transition:all .3s}
-.dept__arrow svg{width:.875rem;height:.875rem;stroke:#fff;transition:transform .3s}
-.dept:hover .dept__arrow{background:var(--teal);border-color:var(--teal)}
-.dept:hover .dept__arrow svg{stroke:var(--bg);transform:rotate(-45deg)}
+.dept{position:relative;border-radius:var(--radius);overflow:hidden;aspect-ratio:4/5;display:block;isolation:isolate;color:#fff;box-shadow:var(--shadow-sm);background:linear-gradient(135deg,#0e6fbe,#0a5a9c)}
+.dept img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease;z-index:-2}
+.dept::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,27,43,0) 30%,rgba(11,27,43,.85) 100%);z-index:-1;transition:background .3s}
+.dept:hover img{transform:scale(1.06)}
+.dept:hover::after{background:linear-gradient(180deg,rgba(14,111,190,.25) 0%,rgba(11,27,43,.92) 100%)}
+.dept__body{position:absolute;inset:auto 0 0 0;padding:1.25rem}
+.dept__name{font-family:var(--font-serif);font-size:1.25rem;font-weight:500;letter-spacing:-.01em;line-height:1.2}
+.dept__meta{margin-top:.375rem;font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.7);display:flex;align-items:center;gap:.5rem}
+.dept__arrow{position:absolute;top:1rem;right:1rem;width:2rem;height:2rem;border-radius:50%;background:rgba(255,255,255,.15);backdrop-filter:blur(8px);display:grid;place-items:center;transition:background .3s, transform .3s}
+.dept__arrow svg{width:.875rem;height:.875rem;stroke:#fff}
+.dept:hover .dept__arrow{background:var(--accent);transform:rotate(-45deg)}
 
-/* ============ BENTO FEATURES ============ */
-.bento{display:grid;gap:1rem;grid-template-columns:1fr}
-@media(min-width:768px){.bento{grid-template-columns:repeat(3,1fr);grid-template-rows:auto auto}}
-.bento__item{background:linear-gradient(180deg,var(--panel),var(--panel-2));border:1px solid var(--line);border-radius:1.25rem;padding:2rem;position:relative;overflow:hidden;transition:border-color .3s,transform .3s}
-.bento__item:hover{border-color:var(--line-2);transform:translateY(-3px)}
-.bento__item--wide{grid-column:span 2}
-@media(max-width:767px){.bento__item--wide{grid-column:auto}}
-.bento__icon{width:3rem;height:3rem;border-radius:.875rem;display:grid;place-items:center;margin-bottom:1.5rem;position:relative}
-.bento__icon--teal{background:rgba(94,235,212,.12);color:var(--teal);border:1px solid rgba(94,235,212,.2)}
-.bento__icon--blue{background:rgba(79,139,255,.12);color:var(--blue);border:1px solid rgba(79,139,255,.2)}
-.bento__icon--rose{background:rgba(255,107,138,.12);color:var(--rose);border:1px solid rgba(255,107,138,.2)}
-.bento__icon svg{width:1.5rem;height:1.5rem}
-.bento h3{font-family:var(--serif);font-size:1.625rem;font-weight:400;color:#fff;line-height:1.1;letter-spacing:-.01em}
-.bento p{font-size:.9375rem;color:var(--ink-2);margin-top:.75rem;line-height:1.6;max-width:32rem}
-.bento__stat{position:absolute;top:1.5rem;right:1.75rem;font-family:var(--serif);font-size:3.5rem;font-style:italic;color:rgba(94,235,212,.2);line-height:1}
+/* FEATURES */
+.features{display:grid;gap:1rem;grid-template-columns:1fr}
+@media(min-width:768px){.features{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.features{grid-template-columns:repeat(3,1fr)}}
+.feature{background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius);padding:1.75rem;transition:transform .25s,box-shadow .25s,border-color .25s}
+.feature:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:transparent}
+.feature__icon{width:3rem;height:3rem;border-radius:1rem;display:grid;place-items:center;background:var(--brand-3);color:var(--brand);margin-bottom:1.25rem}
+.feature__icon svg{width:1.5rem;height:1.5rem}
+.feature h3{font-family:var(--font-serif);font-size:1.25rem;font-weight:500;letter-spacing:-.005em;color:var(--ink)}
+.feature p{margin-top:.625rem;font-size:.9375rem;color:var(--gray-600);line-height:1.6}
 
-/* ============ STATS ============ */
-.stats{position:relative;z-index:2;padding-block:6rem;border-block:1px solid var(--line);background:linear-gradient(180deg,rgba(94,235,212,.03),transparent)}
-.stats__head{text-align:center;max-width:38rem;margin:0 auto 4rem}
-.stats__head h2{font-family:var(--serif);font-size:clamp(2rem,4vw,3.25rem);font-weight:400;color:#fff;letter-spacing:-.02em;line-height:1.1}
-.stats__head p{margin-top:1rem;color:var(--ink-2);font-size:1.0625rem}
-.stats__grid{display:grid;gap:0;grid-template-columns:repeat(2,1fr);border:1px solid var(--line);border-radius:1.5rem;overflow:hidden;background:rgba(14,26,40,.4)}
+/* STATS */
+.stats{background:linear-gradient(135deg,#0b1b2b 0%,#13293d 100%);color:#fff;padding-block:4.5rem;position:relative;overflow:hidden}
+.stats::before{content:'';position:absolute;inset:0;background:
+  radial-gradient(40rem 30rem at 90% 10%,rgba(20,184,166,.15),transparent 60%),
+  radial-gradient(40rem 30rem at 10% 90%,rgba(14,111,190,.18),transparent 60%);pointer-events:none}
+.stats__head{position:relative;text-align:center;max-width:36rem;margin:0 auto 3rem}
+.stats__head h2{font-family:var(--font-serif);font-size:clamp(1.75rem,3vw,2.5rem);font-weight:500;letter-spacing:-.015em}
+.stats__head p{margin-top:.75rem;color:#a9b8c7}
+.stats__grid{position:relative;display:grid;gap:1rem;grid-template-columns:repeat(2,1fr)}
 @media(min-width:768px){.stats__grid{grid-template-columns:repeat(4,1fr)}}
-.stat{padding:2.5rem 1.5rem;text-align:center;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:background .3s}
-.stat:nth-child(2n){border-right:0}
-.stat:nth-child(n+3){border-bottom:0}
-@media(min-width:768px){.stat:nth-child(2n){border-right:1px solid var(--line)}.stat:nth-child(n+3){border-bottom:0}.stat:last-child{border-right:0}}
-.stat:hover{background:rgba(94,235,212,.04)}
-.stat__num{font-family:var(--serif);font-size:clamp(2.5rem,5vw,4rem);font-weight:400;color:#fff;line-height:1;letter-spacing:-.02em}
-.stat__num span{color:var(--teal);font-style:italic}
-.stat__label{margin-top:.75rem;font-size:.75rem;color:var(--ink-3);letter-spacing:.15em;text-transform:uppercase;font-weight:500}
+.stat{padding:1.5rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);text-align:center;transition:background .3s,border-color .3s}
+.stat:hover{background:rgba(255,255,255,.07);border-color:rgba(20,184,166,.4)}
+.stat__num{font-family:var(--font-serif);font-size:clamp(2.25rem,4vw,3rem);font-weight:500;letter-spacing:-.02em;color:#fff;line-height:1}
+.stat__num span{color:var(--accent)}
+.stat__label{margin-top:.75rem;font-size:.8125rem;color:#a9b8c7;text-transform:uppercase;letter-spacing:.1em;font-weight:500}
 
-/* ============ DOCTORS ============ */
+/* DOCTORS */
 .doctors{display:grid;gap:1.25rem;grid-template-columns:1fr}
 @media(min-width:768px){.doctors{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:1024px){.doctors{grid-template-columns:repeat(3,1fr)}}
-.doc{background:linear-gradient(180deg,var(--panel),var(--panel-2));border:1px solid var(--line);border-radius:1.25rem;overflow:hidden;transition:border-color .3s,transform .3s;display:flex;flex-direction:column}
-.doc:hover{border-color:var(--teal);transform:translateY(-4px)}
-.doc__img{position:relative;aspect-ratio:5/4;background:linear-gradient(135deg,var(--panel-2),var(--panel));overflow:hidden}
-.doc__img svg{position:absolute;inset:0;width:100%;height:100%}
-.doc__badge{position:absolute;top:.875rem;left:.875rem;background:rgba(94,235,212,.15);border:1px solid rgba(94,235,212,.3);backdrop-filter:blur(10px);padding:.375rem .75rem;border-radius:999px;font-size:.6875rem;font-weight:600;letter-spacing:.08em;color:var(--teal);text-transform:uppercase;display:flex;align-items:center;gap:.375rem}
-.doc__badge::before{content:'';width:.375rem;height:.375rem;border-radius:50%;background:var(--teal)}
-.doc__body{padding:1.5rem;display:flex;flex-direction:column;gap:.375rem;flex:1}
-.doc__name{font-family:var(--serif);font-size:1.375rem;font-weight:400;color:#fff;letter-spacing:-.01em}
-.doc__role{font-size:.8125rem;color:var(--teal);font-weight:500}
-.doc__meta{display:flex;flex-wrap:wrap;gap:1rem;margin-top:.875rem;padding-top:.875rem;border-top:1px solid var(--line);font-size:.75rem;color:var(--ink-3)}
-.doc__meta span{display:inline-flex;align-items:center;gap:.375rem}
-.doc__meta svg{width:.75rem;height:.75rem}
-.doc__foot{margin-top:auto;padding-top:1.25rem;display:flex;align-items:center;justify-content:space-between;gap:.75rem}
-.doc__next{font-size:.75rem;color:var(--ink-3)}
-.doc__next strong{color:var(--teal);font-weight:600}
-.doc__cta{display:inline-flex;align-items:center;gap:.375rem;padding:.5rem 1rem;background:rgba(94,235,212,.12);border:1px solid rgba(94,235,212,.25);border-radius:999px;font-size:.8125rem;font-weight:600;color:var(--teal);transition:all .25s}
-.doc__cta:hover{background:var(--teal);color:var(--bg)}
+.doc{background:#fff;border-radius:var(--radius);overflow:hidden;border:1px solid var(--gray-200);transition:transform .3s, box-shadow .3s, border-color .3s;display:flex;flex-direction:column}
+.doc:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:transparent}
+.doc__img{aspect-ratio:5/4;position:relative;overflow:hidden;background:var(--gray-100)}
+.doc__img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.doc:hover .doc__img img{transform:scale(1.05)}
+.doc__badge{position:absolute;top:.75rem;left:.75rem;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);padding:.375rem .75rem;border-radius:999px;font-size:.6875rem;font-weight:600;letter-spacing:.04em;color:#0fa396;display:flex;align-items:center;gap:.375rem;text-transform:uppercase}
+.doc__badge::before{content:'';width:.375rem;height:.375rem;border-radius:50%;background:#0fa396}
+.doc__body{padding:1.25rem;display:flex;flex-direction:column;gap:.5rem;flex:1}
+.doc__name{font-family:var(--font-serif);font-size:1.125rem;font-weight:500;letter-spacing:-.005em;color:var(--ink)}
+.doc__role{font-size:.8125rem;color:var(--gray-500);font-weight:500}
+.doc__meta{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem;padding-top:.75rem;border-top:1px solid var(--gray-100)}
+.doc__meta span{font-size:.75rem;color:var(--gray-600);display:inline-flex;align-items:center;gap:.25rem}
+.doc__meta span svg{width:.75rem;height:.75rem;color:var(--gray-400)}
+.doc__footer{margin-top:auto;padding-top:1rem;display:flex;gap:.5rem;align-items:center;justify-content:space-between}
+.doc__next{font-size:.75rem;color:#0fa396;font-weight:600;display:flex;align-items:center;gap:.375rem}
+.doc__next::before{content:'';width:.375rem;height:.375rem;border-radius:50%;background:#0fa396}
+.doc__cta{font-size:.8125rem;font-weight:600;color:var(--brand);display:inline-flex;align-items:center;gap:.25rem}
 .doc__cta svg{width:.875rem;height:.875rem;transition:transform .2s}
-.doc__cta:hover svg{transform:translateX(2px)}
+.doc:hover .doc__cta svg{transform:translateX(2px)}
 
-/* ============ TESTIMONIALS ============ */
-.testi-wrap{display:grid;gap:1.25rem;grid-template-columns:1fr}
-@media(min-width:768px){.testi-wrap{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:1024px){.testi-wrap{grid-template-columns:repeat(3,1fr)}}
-.testi{background:linear-gradient(180deg,var(--panel),var(--panel-2));border:1px solid var(--line);border-radius:1.25rem;padding:2rem;position:relative;overflow:hidden;transition:border-color .3s,transform .3s;display:flex;flex-direction:column}
-.testi:hover{border-color:var(--line-2);transform:translateY(-3px)}
-.testi__mark{position:absolute;top:-1rem;right:1rem;font-family:var(--serif);font-size:8rem;line-height:1;color:rgba(94,235,212,.08);font-style:italic;pointer-events:none}
-.testi__stars{color:#fbbf24;font-size:.875rem;letter-spacing:.25em;position:relative}
-.testi__quote{font-family:var(--serif);font-size:1.25rem;color:var(--ink);line-height:1.4;margin-top:1.25rem;position:relative;font-style:italic}
-.testi__who{margin-top:auto;padding-top:1.75rem;display:flex;align-items:center;gap:.75rem;position:relative}
-.testi__avatar{width:2.75rem;height:2.75rem;border-radius:50%;display:grid;place-items:center;font-weight:600;font-size:.875rem;color:var(--bg);flex-shrink:0}
-.testi:nth-child(1) .testi__avatar{background:linear-gradient(135deg,#5eebd4,#4f8bff)}
-.testi:nth-child(2) .testi__avatar{background:linear-gradient(135deg,#ff6b8a,#fbbf24)}
-.testi:nth-child(3) .testi__avatar{background:linear-gradient(135deg,#a78bfa,#5eebd4)}
-.testi__name{font-weight:600;font-size:.875rem;color:#fff}
-.testi__role{font-size:.75rem;color:var(--ink-3)}
+/* TESTIMONIALS */
+.testis{display:grid;gap:1.25rem;grid-template-columns:1fr}
+@media(min-width:768px){.testis{grid-template-columns:repeat(3,1fr)}}
+.testi{background:#fff;border:1px solid var(--gray-200);border-radius:var(--radius);padding:1.75rem;position:relative;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
+.testi:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+.testi__quote{position:absolute;top:1rem;right:1.25rem;font-family:var(--font-serif);font-size:4rem;line-height:1;color:var(--brand-3);pointer-events:none;font-weight:600}
+.testi__stars{color:#f59e0b;font-size:.875rem;letter-spacing:.125rem;margin-bottom:1rem;position:relative}
+.testi__text{font-size:.9375rem;color:var(--gray-700);line-height:1.65;position:relative;font-style:italic;font-family:var(--font-serif)}
+.testi__who{display:flex;align-items:center;gap:.75rem;margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid var(--gray-100);position:relative}
+.testi__who img{width:2.5rem;height:2.5rem;border-radius:50%;object-fit:cover}
+.testi__who-name{font-size:.875rem;font-weight:600;color:var(--ink)}
+.testi__who-role{font-size:.75rem;color:var(--gray-500)}
 
-/* ============ CTA ============ */
-.cta-band{position:relative;z-index:2;padding-block:7rem;text-align:center;overflow:hidden}
-.cta-band::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(94,235,212,.15),transparent 60%);pointer-events:none;filter:blur(40px)}
-.cta-band h2{font-family:var(--serif);font-size:clamp(2.5rem,6vw,5rem);font-weight:400;color:#fff;line-height:.95;letter-spacing:-.02em;max-width:48rem;margin-inline:auto}
-.cta-band h2 em{font-style:italic;color:var(--teal)}
-.cta-band p{margin-top:1.5rem;color:var(--ink-2);font-size:1.125rem;max-width:36rem;margin-inline:auto}
-.cta-band__buttons{display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center;margin-top:2.5rem}
-.cta-band__buttons .btn{padding:1rem 1.75rem}
+/* CTA BAND */
+.cta{position:relative;overflow:hidden;border-radius:var(--radius-lg);padding:3rem 2rem;color:#fff;background:linear-gradient(135deg,var(--brand) 0%,var(--brand-2) 100%);margin-block:5rem}
+@media(min-width:768px){.cta{padding:4rem 3rem}}
+.cta::before{content:'';position:absolute;inset:0;background:
+  radial-gradient(30rem 20rem at 100% 0%,rgba(20,184,166,.35),transparent 60%),
+  radial-gradient(30rem 20rem at 0% 100%,rgba(255,255,255,.12),transparent 60%);pointer-events:none}
+.cta__inner{position:relative;display:grid;gap:2.5rem;align-items:center}
+@media(min-width:960px){.cta__inner{grid-template-columns:1.1fr .9fr;gap:3rem}}
+.cta h2{font-family:var(--font-serif);font-size:clamp(1.875rem,3.5vw,2.75rem);font-weight:500;letter-spacing:-.015em;line-height:1.1}
+.cta p{margin-top:1rem;font-size:1.0625rem;color:rgba(255,255,255,.85);max-width:32rem;line-height:1.6}
+.cta__actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
+.cta__actions .btn{padding:.875rem 1.5rem}
+.cta__features{display:grid;gap:.75rem}
+.cta__feature{display:flex;align-items:center;gap:.75rem;background:rgba(255,255,255,.1);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.15);padding:.875rem 1rem;border-radius:.875rem;font-size:.875rem;font-weight:500}
+.cta__feature svg{width:1.125rem;height:1.125rem;color:var(--accent);flex-shrink:0}
 
-/* ============ FOOTER ============ */
-.footer{position:relative;z-index:2;border-top:1px solid var(--line);background:rgba(7,13,20,.8);padding-block:4rem 2rem}
-.footer__grid{display:grid;gap:3rem;grid-template-columns:1fr}
+/* FOOTER */
+.footer{background:var(--ink);color:#a9b8c7;margin-top:4rem;position:relative;overflow:hidden}
+.footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(20,184,166,.5),transparent)}
+.footer__inner{padding-block:4rem 2rem}
+.footer__grid{display:grid;gap:2.5rem;grid-template-columns:1fr}
 @media(min-width:640px){.footer__grid{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:1024px){.footer__grid{grid-template-columns:1.5fr 1fr 1fr 1fr}}
-.footer__about{margin-top:1.25rem;font-size:.875rem;color:var(--ink-2);line-height:1.7;max-width:24rem}
-.footer__contact{margin-top:1.5rem;display:flex;flex-direction:column;gap:.625rem;font-size:.875rem;color:var(--ink-2)}
+.footer__brand .logo__name{color:#fff}
+.footer__brand .logo__sub{color:#6b7c8f}
+.footer__about{margin-top:1.25rem;font-size:.875rem;line-height:1.6;max-width:22rem}
+.footer__contact{margin-top:1.5rem;display:flex;flex-direction:column;gap:.5rem;font-size:.875rem}
 .footer__contact a{display:flex;align-items:center;gap:.5rem;transition:color .2s}
-.footer__contact a:hover{color:var(--teal)}
-.footer__contact svg{width:.875rem;height:.875rem;color:var(--teal);flex-shrink:0}
-.footer h4{font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.15em;color:#fff;margin-bottom:1.25rem}
-.footer ul{list-style:none;display:flex;flex-direction:column;gap:.625rem}
-.footer ul a{font-size:.875rem;color:var(--ink-2);transition:color .2s}
-.footer ul a:hover{color:var(--teal)}
-.footer__bottom{border-top:1px solid var(--line);margin-top:3rem;padding-top:1.5rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;font-size:.75rem;color:var(--ink-3)}
-.footer__emergency{color:var(--rose);display:inline-flex;align-items:center;gap:.5rem;font-weight:600}
-.footer__emergency::before{content:'';width:.5rem;height:.5rem;border-radius:50%;background:var(--rose);animation:pulse 1.8s infinite}
+.footer__contact a:hover{color:#fff}
+.footer__contact svg{width:.875rem;height:.875rem;color:var(--accent);flex-shrink:0}
+.footer h4{color:#fff;font-size:.8125rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;margin-bottom:1rem}
+.footer ul{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.footer ul a{font-size:.875rem;transition:color .2s;display:inline-block}
+.footer ul a:hover{color:#fff;transform:translateX(2px)}
+.footer__bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:1.5rem;margin-top:3rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;font-size:.75rem}
+.footer__emergency{display:inline-flex;align-items:center;gap:.5rem;color:#fff;font-weight:600}
+.footer__emergency::before{content:'';width:.5rem;height:.5rem;border-radius:50%;background:#ff4d6a;animation:pulse 2s infinite}
 
-/* ============ DRAWER ============ */
-.drawer{position:fixed;inset:0;z-index:100;background:rgba(7,13,20,.6);backdrop-filter:blur(8px);opacity:0;pointer-events:none;transition:opacity .3s}
-.drawer.open{opacity:1;pointer-events:auto}
-.drawer__panel{position:absolute;top:0;right:0;bottom:0;width:min(360px,90vw);background:var(--bg-2);border-left:1px solid var(--line);transform:translateX(100%);transition:transform .4s cubic-bezier(.16,1,.3,1);display:flex;flex-direction:column;padding:1.5rem;overflow-y:auto}
-.drawer.open .drawer__panel{transform:none}
-.drawer__head{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--line)}
-.drawer__close{width:2.5rem;height:2.5rem;display:grid;place-items:center;border-radius:.75rem;border:1px solid var(--line-2);color:var(--ink-2)}
-.drawer__close:hover{color:var(--teal);border-color:var(--teal)}
-.drawer__nav{display:flex;flex-direction:column;gap:.25rem}
-.drawer__nav a{padding:.875rem 1rem;border-radius:.75rem;font-size:.9375rem;font-weight:500;color:var(--ink-2);display:flex;justify-content:space-between;align-items:center;transition:all .2s}
-.drawer__nav a:hover{background:rgba(94,235,212,.08);color:var(--teal)}
-.drawer__nav a svg{width:.875rem;height:.875rem;color:var(--ink-3)}
-.drawer__nav a.danger{color:var(--rose);margin-top:.5rem;border-top:1px solid var(--line);padding-top:1.25rem}
-.drawer__cta{margin-top:2rem;display:flex;flex-direction:column;gap:.5rem}
-.drawer__cta .btn{width:100%;justify-content:center}
-
-/* ============ REVEAL ============ */
-.reveal{opacity:0;transform:translateY(40px);transition:opacity .9s cubic-bezier(.16,1,.3,1), transform .9s cubic-bezier(.16,1,.3,1)}
-.reveal.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}*{animation:none!important;transition:none!important}}
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1)}
+.reveal.is-in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}*{animation-duration:0s!important;transition-duration:0s!important}}
 </style>
 </head>
 <body>
 
-<!-- MESH BG -->
-<div class="mesh" aria-hidden="true">
-  <div class="mesh__blob mesh__blob--1"></div>
-  <div class="mesh__blob mesh__blob--2"></div>
-  <div class="mesh__blob mesh__blob--3"></div>
-</div>
-
-<!-- EMERGENCY RIBBON -->
-<div class="ribbon">
-  <div class="container ribbon__inner">
-    <div class="ribbon__left">
-      <span class="ribbon__dot"></span>
+<!-- EMERGENCY STRIP -->
+<div class="emergency">
+  <div class="container emergency__inner">
+    <div class="emergency__left">
+      <span class="emergency__pulse"></span>
       <span><b>Emergency?</b> Call <a href="tel:907">907</a> — open 24/7</span>
     </div>
-    <div class="ribbon__right">
-      <a href="emergency.html">Live ER wait times
-        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    <div class="emergency__right">
+      <a href="emergency.html" class="emergency__link">
+        Live ER wait times
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
     </div>
   </div>
@@ -344,455 +332,426 @@ body::before{content:'';position:fixed;inset:0;z-index:1;pointer-events:none;opa
       <a href="about.html">About</a>
       <a href="news.html">News</a>
     </nav>
-    <div class="hdr__right">
-      <a href="book.html" class="btn btn--primary">Book a visit
+    <div class="hdr__actions">
+      <a href="book.html" class="btn btn--primary">
+        Book a visit
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
-      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
       </button>
     </div>
   </div>
 </header>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="container hero__inner">
-    <div class="hero__copy reveal">
-      <span class="hero__eyebrow">
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
-        Accredited · Six languages · Open 24/7
-      </span>
-      <h1>Care that feels <em>human</em>.</h1>
-      <p>Book a specialist in under a minute. Check ER wait times live. Get answers in your language. All of it, from any device.</p>
-      <div class="hero__cta">
-        <a href="book.html" class="btn btn--primary btn--lg">Book an appointment
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-        </a>
-        <a href="find-a-doctor.html" class="btn btn--ghost btn--lg">Find a doctor</a>
-      </div>
-      <div class="hero__trust">
-        <div class="hero__avatars">
-          <div>M</div><div>D</div><div>R</div><div>+</div>
-        </div>
-        <div class="hero__trust-text">
-          <span class="stars">★★★★★</span> &nbsp;<strong>4.9 / 5</strong> from <strong>2,400+</strong> reviews
-        </div>
-      </div>
+<!-- DRAWER -->
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer__panel" role="dialog" aria-modal="true" aria-label="Navigation">
+    <div class="drawer__head">
+      <a href="index.html" class="logo">
+        <span class="logo__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/></svg></span>
+        <span class="logo__text"><span class="logo__name">Horizon</span><span class="logo__sub">General Hospital</span></span>
+      </a>
+      <button class="drawer__close" id="drawerClose" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
     </div>
-
-    <div class="hero__visual reveal">
-      <svg class="hero__art" viewBox="0 0 400 400" fill="none" aria-hidden="true">
-        <defs>
-          <linearGradient id="ring1" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#5eebd4" stop-opacity="0.8"/>
-            <stop offset="100%" stop-color="#4f8bff" stop-opacity="0"/>
-          </linearGradient>
-          <linearGradient id="ring2" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#4f8bff" stop-opacity="0.6"/>
-            <stop offset="100%" stop-color="#5eebd4" stop-opacity="0"/>
-          </linearGradient>
-          <linearGradient id="ring3" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#ff6b8a" stop-opacity="0.4"/>
-            <stop offset="100%" stop-color="#5eebd4" stop-opacity="0"/>
-          </linearGradient>
-        </defs>
-        <circle cx="200" cy="200" r="180" stroke="url(#ring1)" stroke-width="1" stroke-dasharray="4 8"/>
-        <circle cx="200" cy="200" r="140" stroke="url(#ring2)" stroke-width="1.5"/>
-        <circle cx="200" cy="200" r="100" stroke="url(#ring3)" stroke-width="2" stroke-dasharray="2 6"/>
-        <circle cx="200" cy="200" r="60" stroke="url(#ring1)" stroke-width="1"/>
-        <circle cx="200" cy="200" r="200" stroke="url(#ring2)" stroke-width=".5" stroke-dasharray="1 12"/>
-        <!-- orbiting dots -->
-        <circle cx="200" cy="20" r="4" fill="#5eebd4">
-          <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
-        </circle>
-        <circle cx="380" cy="200" r="3" fill="#4f8bff">
-          <animate attributeName="opacity" values="0.3;1;0.3" dur="2.4s" repeatCount="indefinite"/>
-        </circle>
-        <circle cx="200" cy="380" r="5" fill="#ff6b8a">
-          <animate attributeName="opacity" values="1;0.4;1" dur="3s" repeatCount="indefinite"/>
-        </circle>
-        <circle cx="20" cy="200" r="3" fill="#5eebd4">
-          <animate attributeName="opacity" values="0.5;1;0.5" dur="2.8s" repeatCount="indefinite"/>
-        </circle>
-        <!-- cross in center -->
-        <g transform="translate(200 200)">
-          <rect x="-30" y="-8" width="60" height="16" rx="8" fill="#5eebd4" opacity="0.9"/>
-          <rect x="-8" y="-30" width="16" height="60" rx="8" fill="#5eebd4" opacity="0.9"/>
-          <circle r="50" fill="none" stroke="#5eebd4" stroke-width="1" opacity="0.3"/>
-        </g>
-      </svg>
-      <div class="hero__center"><div class="hero__pulse"></div></div>
-
-      <div class="hero__float hero__float--1">
-        <div class="hero__float-icon hero__float-icon--teal">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        </div>
-        <div>
-          <div class="hero__float-label">ER wait time</div>
-          <div class="hero__float-value live">~12 min</div>
-        </div>
-      </div>
-
-      <div class="hero__float hero__float--2">
-        <div class="hero__float-icon hero__float-icon--blue">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        </div>
-        <div>
-          <div class="hero__float-label">Next available</div>
-          <div class="hero__float-value">Today · 14:30</div>
-        </div>
-      </div>
-
-      <div class="hero__float hero__float--3">
-        <div class="hero__float-icon hero__float-icon--rose">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
-        </div>
-        <div>
-          <div class="hero__float-label">Would return</div>
-          <div class="hero__float-value">98%</div>
-        </div>
-      </div>
+    <nav class="drawer__nav">
+      <a href="find-a-doctor.html">Find a doctor <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></a>
+      <a href="departments.html">Departments <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></a>
+      <a href="services.html">Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></a>
+      <a href="patients-visitors.html">Patients &amp; visitors <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></a>
+      <a href="about.html">About <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></a>
+      <a href="contact.html">Contact <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></a>
+      <a href="careers.html">Careers <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></a>
+      <a href="insurance.html">Insurance <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></a>
+      <a href="portal.html">Patient portal <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></a>
+      <a href="emergency.html" class="danger">Emergency <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></a>
+    </nav>
+    <div class="drawer__cta">
+      <a href="book.html" class="btn btn--primary">Book a visit</a>
+      <a href="portal.html" class="btn btn--ghost">Patient portal</a>
     </div>
-  </div>
-  <div class="scroll-cue"><span>Scroll</span><span class="scroll-cue__line"></span></div>
-</section>
-
-<!-- MARQUEE -->
-<div class="marquee" aria-hidden="true">
-  <div class="marquee__track">
-    <div class="marquee__item">Cardiology</div>
-    <div class="marquee__item">Pediatrics</div>
-    <div class="marquee__item">Maternity</div>
-    <div class="marquee__item">Orthopedics</div>
-    <div class="marquee__item">Radiology</div>
-    <div class="marquee__item">Laboratory</div>
-    <div class="marquee__item">Emergency Medicine</div>
-    <div class="marquee__item">Internal Medicine</div>
-    <div class="marquee__item">Cardiology</div>
-    <div class="marquee__item">Pediatrics</div>
-    <div class="marquee__item">Maternity</div>
-    <div class="marquee__item">Orthopedics</div>
-    <div class="marquee__item">Radiology</div>
-    <div class="marquee__item">Laboratory</div>
-    <div class="marquee__item">Emergency Medicine</div>
-    <div class="marquee__item">Internal Medicine</div>
+    <div class="drawer__foot">
+      <p>Emergency? Call <a href="tel:907">907</a></p>
+      <p style="margin-top:.25rem">Mon–Sun · 24/7</p>
+    </div>
   </div>
 </div>
 
-<!-- DEPARTMENTS -->
-<section class="section">
-  <div class="container">
-    <div class="section-head reveal">
-      <div>
-        <span class="kicker">Specialties</span>
-        <h2>Every department. One standard of care.</h2>
-        <p>Eight specialist teams, working as one hospital.</p>
-      </div>
-      <a href="departments.html" class="link">All departments
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-    <div class="depts">
-      <a href="department.html?slug=cardiology" class="dept reveal">
-        <div class="dept__bg">
-          <svg viewBox="0 0 300 400" fill="none" preserveAspectRatio="xMidYMid slice">
-            <defs><linearGradient id="d1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#5eebd4" stop-opacity="0.25"/><stop offset="100%" stop-color="#0e1a28"/></linearGradient></defs>
-            <rect width="300" height="400" fill="url(#d1)"/>
-            <path d="M50 200 Q80 150 110 200 T170 200 T230 200 T290 200" stroke="#5eebd4" stroke-width="2" fill="none" opacity="0.6"/>
-            <path d="M50 200 Q80 250 110 200 T170 200 T230 200 T290 200" stroke="#4f8bff" stroke-width="1" fill="none" opacity="0.4"/>
-            <circle cx="150" cy="200" r="40" stroke="#5eebd4" stroke-width="1" opacity="0.3"/>
-            <circle cx="150" cy="200" r="70" stroke="#5eebd4" stroke-width="0.5" opacity="0.2" stroke-dasharray="2 4"/>
-          </svg>
-        </div>
-        <div class="dept__glow"></div>
-        <span class="dept__num">01</span>
-        <span class="dept__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
-        <h3>Cardiology</h3>
-        <p>Heart &amp; vascular</p>
-      </a>
-      <a href="department.html?slug=pediatrics" class="dept reveal">
-        <div class="dept__bg">
-          <svg viewBox="0 0 300 400" fill="none" preserveAspectRatio="xMidYMid slice">
-            <defs><linearGradient id="d2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4f8bff" stop-opacity="0.25"/><stop offset="100%" stop-color="#0e1a28"/></linearGradient></defs>
-            <rect width="300" height="400" fill="url(#d2)"/>
-            <circle cx="150" cy="180" r="50" stroke="#4f8bff" stroke-width="1.5" opacity="0.5"/>
-            <circle cx="150" cy="180" r="70" stroke="#5eebd4" stroke-width="0.5" opacity="0.3" stroke-dasharray="2 6"/>
-            <circle cx="150" cy="180" r="12" fill="#4f8bff" opacity="0.6"/>
-            <circle cx="220" cy="260" r="8" fill="#5eebd4" opacity="0.4"/>
-            <circle cx="80" cy="280" r="6" fill="#ff6b8a" opacity="0.4"/>
-          </svg>
-        </div>
-        <div class="dept__glow"></div>
-        <span class="dept__num">02</span>
-        <span class="dept__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
-        <h3>Pediatrics</h3>
-        <p>Newborn to teen</p>
-      </a>
-      <a href="department.html?slug=orthopedics" class="dept reveal">
-        <div class="dept__bg">
-          <svg viewBox="0 0 300 400" fill="none" preserveAspectRatio="xMidYMid slice">
-            <defs><linearGradient id="d3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#ff6b8a" stop-opacity="0.2"/><stop offset="100%" stop-color="#0e1a28"/></linearGradient></defs>
-            <rect width="300" height="400" fill="url(#d3)"/>
-            <path d="M80 100 L150 200 L220 100" stroke="#ff6b8a" stroke-width="1.5" fill="none" opacity="0.6"/>
-            <path d="M80 300 L150 200 L220 300" stroke="#5eebd4" stroke-width="1.5" fill="none" opacity="0.6"/>
-            <circle cx="150" cy="200" r="30" stroke="#ff6b8a" stroke-width="1" opacity="0.4"/>
-          </svg>
-        </div>
-        <div class="dept__glow"></div>
-        <span class="dept__num">03</span>
-        <span class="dept__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
-        <h3>Orthopedics</h3>
-        <p>Bones &amp; joints</p>
-      </a>
-      <a href="department.html?slug=obstetrics-gynecology" class="dept reveal">
-        <div class="dept__bg">
-          <svg viewBox="0 0 300 400" fill="none" preserveAspectRatio="xMidYMid slice">
-            <defs><linearGradient id="d4" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#a78bfa" stop-opacity="0.25"/><stop offset="100%" stop-color="#0e1a28"/></linearGradient></defs>
-            <rect width="300" height="400" fill="url(#d4)"/>
-            <circle cx="150" cy="200" r="60" stroke="#a78bfa" stroke-width="1" opacity="0.5"/>
-            <circle cx="150" cy="200" r="90" stroke="#5eebd4" stroke-width="0.5" opacity="0.3" stroke-dasharray="2 6"/>
-            <path d="M150 140 Q180 170 150 200 Q120 230 150 260" stroke="#a78bfa" stroke-width="1.5" fill="none" opacity="0.6"/>
-          </svg>
-        </div>
-        <div class="dept__glow"></div>
-        <span class="dept__num">04</span>
-        <span class="dept__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
-        <h3>Maternity</h3>
-        <p>Women's health</p>
-      </a>
-    </div>
-  </div>
-</section>
+<main class="app">
 
-<!-- BENTO FEATURES -->
-<section class="section">
-  <div class="container">
-    <div class="section-head reveal">
-      <div>
-        <span class="kicker">Why Horizon</span>
-        <h2>Designed for the patient. Not the paperwork.</h2>
-        <p>Every detail, tested with real patients before it shipped.</p>
-      </div>
-    </div>
-    <div class="bento">
-      <div class="bento__item bento__item--wide reveal">
-        <div class="bento__icon bento__icon--teal">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__bg"></div>
+    <div class="container hero__inner">
+      <div class="hero__copy reveal">
+        <span class="eyebrow">
+          <span class="eyebrow__dot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          </span>
+          Accredited · Multilingual · 24/7 emergency
+        </span>
+        <h1>Healthcare that feels <em>human</em> again.</h1>
+        <p class="hero__lead">Book an appointment in under a minute, find the right specialist, or check wait times — from any device. Real people, real care, zero friction.</p>
+        <div class="hero__cta">
+          <a href="book.html" class="btn btn--primary">
+            Book an appointment
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a href="find-a-doctor.html" class="btn btn--ghost">Find a doctor</a>
         </div>
-        <span class="bento__stat">60s</span>
-        <h3>Booked in under a minute.</h3>
-        <p>No forms to fill. No queues to call. Three taps from first visit to confirmed appointment — tested with 400 patients before launch.</p>
-      </div>
-      <div class="bento__item reveal">
-        <div class="bento__icon bento__icon--blue">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+        <div class="hero__trust">
+          <div class="hero__avatars">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=faces&q=80" alt="" />
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=faces&q=80" alt="" />
+            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=80&h=80&fit=crop&crop=faces&q=80" alt="" />
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=faces&q=80" alt="" />
+          </div>
+          <div class="hero__trust-text">
+            <span class="stars">★★★★★</span>
+            <br>
+            <strong>4.9 / 5</strong> from <strong>2,400+</strong> patient reviews
+          </div>
         </div>
-        <h3>Six languages.</h3>
-        <p>Amharic, English, Oromo, Tigrinya, Arabic, French — on call, all day.</p>
       </div>
-      <div class="bento__item reveal">
-        <div class="bento__icon bento__icon--rose">
+
+      <div class="hero__visual reveal">
+        <span class="hero__badge">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-        </div>
-        <h3>Live ER visibility.</h3>
-        <p>Real wait times, updated every 15 minutes. No guessing.</p>
-      </div>
-      <div class="bento__item bento__item--wide reveal">
-        <div class="bento__icon bento__icon--blue">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
-        </div>
-        <span class="bento__stat">0</span>
-        <h3>Zero surprise bills.</h3>
-        <p>Itemized estimate before every procedure. Published outcome data every year. If the bill doesn't match, we eat the difference.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- STATS -->
-<section class="stats">
-  <div class="container">
-    <div class="stats__head reveal">
-      <span class="kicker" style="justify-content:center">By the numbers</span>
-      <h2 style="margin-top:1rem">Measured. Published. Every year.</h2>
-      <p>Not marketing numbers — audited outcomes from our annual quality report.</p>
-    </div>
-    <div class="stats__grid">
-      <div class="stat reveal"><div class="stat__num" data-target="180">0</div><div class="stat__label">Beds</div></div>
-      <div class="stat reveal"><div class="stat__num" data-target="42">0</div><div class="stat__label">Consultants</div></div>
-      <div class="stat reveal"><div class="stat__num" data-target="12400">0</div><div class="stat__label">Admissions / yr</div></div>
-      <div class="stat reveal"><div class="stat__num" data-target="98">0<span>%</span></div><div class="stat__label">Would return</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- DOCTORS -->
-<section class="section">
-  <div class="container">
-    <div class="section-head reveal">
-      <div>
-        <span class="kicker">Meet the team</span>
-        <h2>Specialists you can actually book.</h2>
-        <p>Real availability, not a waitlist. Direct booking with the consultant.</p>
-      </div>
-      <a href="find-a-doctor.html" class="link">All doctors
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-    <div class="doctors">
-      <article class="doc reveal">
-        <div class="doc__img">
-          <svg viewBox="0 0 400 320" fill="none" preserveAspectRatio="xMidYMid slice">
-            <defs><linearGradient id="doc1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#5eebd4" stop-opacity="0.3"/><stop offset="100%" stop-color="#122032"/></linearGradient></defs>
-            <rect width="400" height="320" fill="url(#doc1)"/>
-            <circle cx="200" cy="160" r="60" fill="rgba(94,235,212,.15)"/>
-            <circle cx="200" cy="140" r="30" fill="#5eebd4" opacity="0.4"/>
-            <path d="M140 260 Q200 200 260 260" stroke="#5eebd4" stroke-width="2" fill="none" opacity="0.5"/>
-            <circle cx="200" cy="160" r="100" stroke="#5eebd4" stroke-width="0.5" opacity="0.2" stroke-dasharray="2 8"/>
-          </svg>
-          <span class="doc__badge">Accepting</span>
-        </div>
-        <div class="doc__body">
-          <h3 class="doc__name">Dr. Selam Tesfaye</h3>
-          <p class="doc__role">Consultant Cardiologist</p>
-          <div class="doc__meta">
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/></svg>14 yrs</span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg>Amharic · English</span>
+          Live · updated now
+        </span>
+        <img class="hero__main-img" src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=800&q=80&auto=format&fit=crop" alt="Caring nurse at Horizon General Hospital" />
+        <div class="hero__card hero__card--wait">
+          <div class="hero__card-icon hero__card-icon--teal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
           </div>
-          <div class="doc__foot">
-            <span class="doc__next">Next: <strong>Tomorrow · 09:30</strong></span>
-            <a href="book.html" class="doc__cta">Book <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
-          </div>
-        </div>
-      </article>
-      <article class="doc reveal">
-        <div class="doc__img">
-          <svg viewBox="0 0 400 320" fill="none" preserveAspectRatio="xMidYMid slice">
-            <defs><linearGradient id="doc2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#4f8bff" stop-opacity="0.3"/><stop offset="100%" stop-color="#122032"/></linearGradient></defs>
-            <rect width="400" height="320" fill="url(#doc2)"/>
-            <circle cx="200" cy="160" r="60" fill="rgba(79,139,255,.15)"/>
-            <circle cx="200" cy="140" r="30" fill="#4f8bff" opacity="0.4"/>
-            <path d="M140 260 Q200 200 260 260" stroke="#4f8bff" stroke-width="2" fill="none" opacity="0.5"/>
-            <circle cx="200" cy="160" r="100" stroke="#4f8bff" stroke-width="0.5" opacity="0.2" stroke-dasharray="2 8"/>
-          </svg>
-          <span class="doc__badge">Accepting</span>
-        </div>
-        <div class="doc__body">
-          <h3 class="doc__name">Dr. Hanna Girma</h3>
-          <p class="doc__role">Consultant Pediatrician</p>
-          <div class="doc__meta">
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/></svg>11 yrs</span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg>Amharic · English · Oromo</span>
-          </div>
-          <div class="doc__foot">
-            <span class="doc__next">Next: <strong>Today · 14:00</strong></span>
-            <a href="book.html" class="doc__cta">Book <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
-          </div>
-        </div>
-      </article>
-      <article class="doc reveal">
-        <div class="doc__img">
-          <svg viewBox="0 0 400 320" fill="none" preserveAspectRatio="xMidYMid slice">
-            <defs><linearGradient id="doc3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#ff6b8a" stop-opacity="0.3"/><stop offset="100%" stop-color="#122032"/></linearGradient></defs>
-            <rect width="400" height="320" fill="url(#doc3)"/>
-            <circle cx="200" cy="160" r="60" fill="rgba(255,107,138,.15)"/>
-            <circle cx="200" cy="140" r="30" fill="#ff6b8a" opacity="0.4"/>
-            <path d="M140 260 Q200 200 260 260" stroke="#ff6b8a" stroke-width="2" fill="none" opacity="0.5"/>
-            <circle cx="200" cy="160" r="100" stroke="#ff6b8a" stroke-width="0.5" opacity="0.2" stroke-dasharray="2 8"/>
-          </svg>
-          <span class="doc__badge">Accepting</span>
-        </div>
-        <div class="doc__body">
-          <h3 class="doc__name">Dr. Abel Mekonnen</h3>
-          <p class="doc__role">Internist</p>
-          <div class="doc__meta">
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/></svg>9 yrs</span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg>Amharic · English</span>
-          </div>
-          <div class="doc__foot">
-            <span class="doc__next">Next: <strong>Today · 16:30</strong></span>
-            <a href="book.html" class="doc__cta">Book <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
-          </div>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="section">
-  <div class="container">
-    <div class="section-head reveal">
-      <div>
-        <span class="kicker">Patient voices</span>
-        <h2>What it actually feels like.</h2>
-        <p>2,400+ reviews. Verified after discharge.</p>
-      </div>
-    </div>
-    <div class="testi-wrap">
-      <blockquote class="testi reveal">
-        <div class="testi__mark">"</div>
-        <div class="testi__stars">★★★★★</div>
-        <p class="testi__quote">Booked in 40 seconds. Seen in 15 minutes. This is what healthcare should feel like.</p>
-        <footer class="testi__who">
-          <div class="testi__avatar">MA</div>
           <div>
-            <div class="testi__name">Marta A.</div>
-            <div class="testi__role">Cardiology patient</div>
+            <div class="hero__card-label">ER wait time</div>
+            <div class="hero__card-value live">~12 min</div>
           </div>
-        </footer>
-      </blockquote>
-      <blockquote class="testi reveal">
-        <div class="testi__mark">"</div>
-        <div class="testi__stars">★★★★★</div>
-        <p class="testi__quote">The pediatric team treated my daughter like family. We felt safe, seen, and heard.</p>
-        <footer class="testi__who">
-          <div class="testi__avatar">DK</div>
+        </div>
+        <div class="hero__card hero__card--doctor">
+          <div class="hero__card-icon hero__card-icon--blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
           <div>
-            <div class="testi__name">Daniel K.</div>
-            <div class="testi__role">Parent</div>
+            <div class="hero__card-label">Next available</div>
+            <div class="hero__card-value">Today · 14:30</div>
           </div>
-        </footer>
-      </blockquote>
-      <blockquote class="testi reveal">
-        <div class="testi__mark">"</div>
-        <div class="testi__stars">★★★★★</div>
-        <p class="testi__quote">The portal showed every appointment, bill and prescription in one place. Never called once.</p>
-        <footer class="testi__who">
-          <div class="testi__avatar">RT</div>
-          <div>
-            <div class="testi__name">Rahel T.</div>
-            <div class="testi__role">Orthopedics patient</div>
-          </div>
-        </footer>
-      </blockquote>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- CTA -->
-<section class="cta-band">
-  <div class="container">
-    <div class="reveal">
-      <span class="kicker" style="justify-content:center">Ready when you are</span>
-      <h2 style="margin-top:1.5rem">Your next visit starts <em>right now</em>.</h2>
-      <p>Book online in under a minute. Or open the live ER dashboard if you're not sure where to go.</p>
-      <div class="cta-band__buttons">
-        <a href="book.html" class="btn btn--primary btn--lg">Book an appointment
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+  <!-- QUICK ACTIONS -->
+  <section class="quick">
+    <div class="container">
+      <div class="quick__grid">
+        <a href="book.html" class="quick__item reveal">
+          <span class="quick__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span>
+          <span class="quick__title">Book a visit</span>
+          <span class="quick__desc">In-person or video in under 60 seconds.</span>
+          <svg class="quick__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
         </a>
-        <a href="emergency.html" class="btn btn--ghost btn--lg">Check ER wait</a>
+        <a href="find-a-doctor.html" class="quick__item reveal">
+          <span class="quick__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/></svg></span>
+          <span class="quick__title">Find a doctor</span>
+          <span class="quick__desc">Filter by specialty, language or availability.</span>
+          <svg class="quick__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+        </a>
+        <a href="emergency.html" class="quick__item reveal">
+          <span class="quick__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>
+          <span class="quick__title">Check ER wait</span>
+          <span class="quick__desc">Live wait times · directions · when to call.</span>
+          <svg class="quick__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+        </a>
+        <a href="portal.html" class="quick__item reveal">
+          <span class="quick__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></span>
+          <span class="quick__title">Pay a bill</span>
+          <span class="quick__desc">View balances, records and prescriptions.</span>
+          <svg class="quick__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPARTMENTS -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <span class="kicker">Our specialties</span>
+          <h2>World-class care, every department.</h2>
+          <p>Eight specialist teams working together for a single, seamless experience.</p>
+        </div>
+        <a href="departments.html" class="link">
+          All departments
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="depts">
+        <a href="department.html?slug=cardiology" class="dept reveal">
+          <img src="https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?w=600&q=80&auto=format&fit=crop" alt="Cardiology" loading="lazy" />
+          <span class="dept__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+          <div class="dept__body">
+            <div class="dept__name">Cardiology</div>
+            <div class="dept__meta">Heart &amp; vascular</div>
+          </div>
+        </a>
+        <a href="department.html?slug=pediatrics" class="dept reveal">
+          <img src="https://images.unsplash.com/photo-1632053002928-1919f4d93e2b?w=600&q=80&auto=format&fit=crop" alt="Pediatrics" loading="lazy" />
+          <span class="dept__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+          <div class="dept__body">
+            <div class="dept__name">Pediatrics</div>
+            <div class="dept__meta">Newborn to teen</div>
+          </div>
+        </a>
+        <a href="department.html?slug=orthopedics" class="dept reveal">
+          <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&q=80&auto=format&fit=crop" alt="Orthopedics" loading="lazy" />
+          <span class="dept__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+          <div class="dept__body">
+            <div class="dept__name">Orthopedics</div>
+            <div class="dept__meta">Bones &amp; joints</div>
+          </div>
+        </a>
+        <a href="department.html?slug=obstetrics-gynecology" class="dept reveal">
+          <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=600&q=80&auto=format&fit=crop" alt="Maternity" loading="lazy" />
+          <span class="dept__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+          <div class="dept__body">
+            <div class="dept__name">Maternity</div>
+            <div class="dept__meta">Women's health</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="section section--tint">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <span class="kicker">Why Horizon</span>
+          <h2>Design that respects your time and dignity.</h2>
+          <p>Every detail built around the patient — because good care starts with feeling calm.</p>
+        </div>
+      </div>
+      <div class="features">
+        <div class="feature reveal">
+          <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <h3>Book in under a minute</h3>
+          <p>No forms, no phone queues. Three taps from first visit to confirmed appointment.</p>
+        </div>
+        <div class="feature reveal">
+          <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
+          <h3>Care that listens</h3>
+          <p>Average consultation 24 minutes. Enough time to be heard, not just seen.</p>
+        </div>
+        <div class="feature reveal">
+          <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+          <h3>Six languages spoken</h3>
+          <p>Amharic, English, Oromo, Tigrinya, Arabic, French — interpreters on call.</p>
+        </div>
+        <div class="feature reveal">
+          <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
+          <h3>Transparent pricing</h3>
+          <p>Itemized estimates before every procedure. No surprise bills, ever.</p>
+        </div>
+        <div class="feature reveal">
+          <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+          <h3>Live ER visibility</h3>
+          <p>Real-time wait times updated every 15 minutes across all emergency bays.</p>
+        </div>
+        <div class="feature reveal">
+          <div class="feature__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+          <h3>Records in your pocket</h3>
+          <p>Access results, prescriptions and visit summaries from any device.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats__head reveal">
+        <h2>Numbers that mean something.</h2>
+        <p>Not marketing — measured outcomes we publish every year.</p>
+      </div>
+      <div class="stats__grid">
+        <div class="stat reveal"><div class="stat__num" data-target="180">0</div><div class="stat__label">Beds</div></div>
+        <div class="stat reveal"><div class="stat__num" data-target="42">0</div><div class="stat__label">Consultants</div></div>
+        <div class="stat reveal"><div class="stat__num" data-target="12400">0</div><div class="stat__label">Admissions / yr</div></div>
+        <div class="stat reveal"><div class="stat__num" data-target="98">0<span>%</span></div><div class="stat__label">Would return</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOCTORS -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <span class="kicker">Meet the team</span>
+          <h2>Specialists you'll actually see.</h2>
+          <p>Real availability, not a waitlist. Book directly with the consultant.</p>
+        </div>
+        <a href="find-a-doctor.html" class="link">
+          All doctors
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="doctors">
+        <article class="doc reveal">
+          <div class="doc__img">
+            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&q=80&auto=format&fit=crop&crop=faces" alt="Dr. Selam Tesfaye" loading="lazy" />
+            <span class="doc__badge">Accepting</span>
+          </div>
+          <div class="doc__body">
+            <h3 class="doc__name">Dr. Selam Tesfaye</h3>
+            <p class="doc__role">Consultant Cardiologist</p>
+            <div class="doc__meta">
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/></svg>14 yrs</span>
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg>Amharic · English</span>
+            </div>
+            <div class="doc__footer">
+              <span class="doc__next">Tomorrow · 09:30</span>
+              <a href="book.html" class="doc__cta">Book <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+        </article>
+        <article class="doc reveal">
+          <div class="doc__img">
+            <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=600&q=80&auto=format&fit=crop&crop=faces" alt="Dr. Hanna Girma" loading="lazy" />
+            <span class="doc__badge">Accepting</span>
+          </div>
+          <div class="doc__body">
+            <h3 class="doc__name">Dr. Hanna Girma</h3>
+            <p class="doc__role">Consultant Pediatrician</p>
+            <div class="doc__meta">
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/></svg>11 yrs</span>
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg>Amharic · English · Oromo</span>
+            </div>
+            <div class="doc__footer">
+              <span class="doc__next">Today · 14:00</span>
+              <a href="book.html" class="doc__cta">Book <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+        </article>
+        <article class="doc reveal">
+          <div class="doc__img">
+            <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=80&auto=format&fit=crop&crop=faces" alt="Dr. Abel Mekonnen" loading="lazy" />
+            <span class="doc__badge">Accepting</span>
+          </div>
+          <div class="doc__body">
+            <h3 class="doc__name">Dr. Abel Mekonnen</h3>
+            <p class="doc__role">Internist</p>
+            <div class="doc__meta">
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/></svg>9 yrs</span>
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg>Amharic · English</span>
+            </div>
+            <div class="doc__footer">
+              <span class="doc__next">Today · 16:30</span>
+              <a href="book.html" class="doc__cta">Book <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section section--tint">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <span class="kicker">Patient stories</span>
+          <h2>Real people. Real outcomes.</h2>
+          <p>2,400+ reviews, verified after discharge.</p>
+        </div>
+      </div>
+      <div class="testis">
+        <blockquote class="testi reveal">
+          <div class="testi__quote">"</div>
+          <div class="testi__stars">★★★★★</div>
+          <p class="testi__text">Booked in 40 seconds. Seen in 15 minutes. No forms, no chaos. This is what healthcare should feel like.</p>
+          <footer class="testi__who">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=faces&q=80" alt="" />
+            <div>
+              <div class="testi__who-name">Marta A.</div>
+              <div class="testi__who-role">Cardiology patient</div>
+            </div>
+          </footer>
+        </blockquote>
+        <blockquote class="testi reveal">
+          <div class="testi__quote">"</div>
+          <div class="testi__stars">★★★★★</div>
+          <p class="testi__text">The pediatric team treated my daughter like family. Calm, patient, explained everything. We felt safe.</p>
+          <footer class="testi__who">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=faces&q=80" alt="" />
+            <div>
+              <div class="testi__who-name">Daniel K.</div>
+              <div class="testi__who-role">Parent</div>
+            </div>
+          </footer>
+        </blockquote>
+        <blockquote class="testi reveal">
+          <div class="testi__quote">"</div>
+          <div class="testi__stars">★★★★★</div>
+          <p class="testi__text">After my surgery, the portal showed every appointment, bill and prescription in one place. Never had to call once.</p>
+          <footer class="testi__who">
+            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop&crop=faces&q=80" alt="" />
+            <div>
+              <div class="testi__who-name">Rahel T.</div>
+              <div class="testi__who-role">Orthopedics patient</div>
+            </div>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="container">
+    <div class="cta reveal">
+      <div class="cta__inner">
+        <div>
+          <span class="kicker" style="color:var(--accent)">Ready when you are</span>
+          <h2 style="margin-top:.75rem">Your next visit can start right now.</h2>
+          <p>Book online in under a minute. Or open the live ER dashboard if you're not sure where to go.</p>
+          <div class="cta__actions">
+            <a href="book.html" class="btn btn--light">
+              Book an appointment
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+            <a href="emergency.html" class="btn btn--accent">ER wait times</a>
+          </div>
+        </div>
+        <div class="cta__features">
+          <div class="cta__feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            No account needed to book
+          </div>
+          <div class="cta__feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            SMS confirmation in 30 min
+          </div>
+          <div class="cta__feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            Free rescheduling up to 24h
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</section>
+</main>
 
 <!-- FOOTER -->
 <footer class="footer">
-  <div class="container">
+  <div class="container footer__inner">
     <div class="footer__grid">
-      <div>
+      <div class="footer__brand">
         <a href="index.html" class="logo">
           <span class="logo__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/></svg></span>
           <span class="logo__text"><span class="logo__name">Horizon</span><span class="logo__sub">General Hospital</span></span>
@@ -840,56 +799,25 @@ body::before{content:'';position:fixed;inset:0;z-index:1;pointer-events:none;opa
   </div>
 </footer>
 
-<!-- DRAWER -->
-<div class="drawer" id="drawer">
-  <div class="drawer__panel">
-    <div class="drawer__head">
-      <a href="index.html" class="logo">
-        <span class="logo__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/></svg></span>
-        <span class="logo__text"><span class="logo__name">Horizon</span><span class="logo__sub">General Hospital</span></span>
-      </a>
-      <button class="drawer__close" id="drawerClose" aria-label="Close">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
-      </button>
-    </div>
-    <nav class="drawer__nav">
-      <a href="find-a-doctor.html">Find a doctor <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></a>
-      <a href="departments.html">Departments <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></a>
-      <a href="services.html">Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></a>
-      <a href="patients-visitors.html">Patients &amp; visitors <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></a>
-      <a href="about.html">About <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></a>
-      <a href="contact.html">Contact <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></a>
-      <a href="careers.html">Careers <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></a>
-      <a href="insurance.html">Insurance <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></a>
-      <a href="portal.html">Patient portal <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></a>
-      <a href="emergency.html" class="danger">Emergency <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></a>
-    </nav>
-    <div class="drawer__cta">
-      <a href="book.html" class="btn btn--primary">Book a visit</a>
-      <a href="portal.html" class="btn btn--ghost">Patient portal</a>
-    </div>
-  </div>
-</div>
-
 <script>
-// Header scroll
 const hdr = document.getElementById('hdr');
 window.addEventListener('scroll', () => {
-  hdr.classList.toggle('scrolled', window.scrollY > 10);
+  hdr.classList.toggle('is-scrolled', window.scrollY > 8);
 }, { passive: true });
 
-// Drawer
 const drawer = document.getElementById('drawer');
 const burger = document.getElementById('burger');
 const drawerClose = document.getElementById('drawerClose');
 function openDrawer(){
-  drawer.classList.add('open');
-  burger.setAttribute('aria-expanded', 'true');
+  drawer.classList.add('is-open');
+  drawer.setAttribute('aria-hidden','false');
+  burger.setAttribute('aria-expanded','true');
   document.body.style.overflow = 'hidden';
 }
 function closeDrawer(){
-  drawer.classList.remove('open');
-  burger.setAttribute('aria-expanded', 'false');
+  drawer.classList.remove('is-open');
+  drawer.setAttribute('aria-hidden','true');
+  burger.setAttribute('aria-expanded','false');
   document.body.style.overflow = '';
 }
 burger.addEventListener('click', openDrawer);
@@ -897,32 +825,32 @@ drawerClose.addEventListener('click', closeDrawer);
 drawer.addEventListener('click', (e) => { if (e.target === drawer) closeDrawer(); });
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDrawer(); });
 
-// Reveal
 const io = new IntersectionObserver((entries) => {
   entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
   });
-}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-// Counters
 function animateCounter(el){
   const target = parseInt(el.dataset.target, 10);
   const suffix = el.querySelector('span') ? el.querySelector('span').outerHTML : '';
-  const dur = 1800;
+  const duration = 1600;
   const start = performance.now();
   function tick(now){
-    const t = Math.min((now - start) / dur, 1);
+    const t = Math.min((now - start) / duration, 1);
     const eased = 1 - Math.pow(1 - t, 3);
     el.innerHTML = Math.round(target * eased).toLocaleString() + suffix;
     if (t < 1) requestAnimationFrame(tick);
   }
   requestAnimationFrame(tick);
 }
-const cio = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { animateCounter(e.target); cio.unobserve(e.target); } });
-}, { threshold: 0.5 });
-document.querySelectorAll('.stat__num').forEach(el => cio.observe(el));
+const counterIO = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { animateCounter(e.target); counterIO.unobserve(e.target); }
+  });
+}, { threshold: 0.4 });
+document.querySelectorAll('.stat__num').forEach(el => counterIO.observe(el));
 </script>
 </body>
 </html>
