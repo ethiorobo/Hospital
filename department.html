@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Department — Horizon General Hospital</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+*,*::before,*::after{box-sizing:border-box}*{margin:0;padding:0}
+:root{--b50:#eff8ff;--b100:#dbeefe;--b500:#3b93f6;--b600:#2575eb;--b700:#1d5ed8;--b800:#1e4daf;--b900:#1e438a;
+--s50:#f8fafc;--s100:#f1f5f9;--s200:#e2e8f0;--s300:#cbd5e1;--s400:#94a3b8;--s500:#64748b;--s600:#475569;--s700:#334155;--s800:#1e293b;--s900:#0f172a;
+--r:#dc2626;--r700:#b91c1c;--em700:#047857;--rad:1rem;--sh1:0 1px 2px rgba(0,0,0,.05)}
+html{scroll-behavior:smooth}body{font-family:'Inter',system-ui,sans-serif;background:#fff;color:var(--s800);min-height:100vh;display:flex;flex-direction:column}
+a{color:inherit;text-decoration:none}button{font:inherit;color:inherit}
+.container{width:100%;max-width:1152px;margin-inline:auto;padding-inline:1rem}.app{flex:1}
+.emergency-bar{background:var(--r);color:#fff;font-size:.875rem}
+.emergency-bar__inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.5rem;padding-block:.5rem}
+.emergency-bar__text a{font-weight:600;text-decoration:underline}
+.emergency-bar__link{text-decoration:underline;text-underline-offset:2px}
+.site-header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--s200)}
+.site-header__inner{display:flex;align-items:center;justify-content:space-between;padding-block:.75rem}
+.brand{display:flex;align-items:center;gap:.5rem}
+.brand__mark{display:grid;place-items:center;width:2.25rem;height:2.25rem;border-radius:.75rem;background:var(--b700);color:#fff;font-weight:700}
+.brand__name{font-weight:600;color:var(--s900)}
+.nav-desktop{display:none;gap:1.25rem;font-size:.875rem;font-weight:500;color:var(--s600)}
+.nav-desktop a:hover{color:var(--b700)}
+.hamburger{display:inline-flex;flex-direction:column;justify-content:center;gap:5px;width:2.5rem;height:2.5rem;background:transparent;border:0;border-radius:.5rem;cursor:pointer;padding:.5rem}
+.hamburger__bar{display:block;width:100%;height:2px;border-radius:2px;background:var(--s800);transition:transform .25s,opacity .2s}
+.hamburger[aria-expanded="true"] .hamburger__bar:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger[aria-expanded="true"] .hamburger__bar:nth-child(2){opacity:0}
+.hamburger[aria-expanded="true"] .hamburger__bar:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{border-top:1px solid var(--s200);background:#fff}.mobile-menu[hidden]{display:none}
+.mobile-menu__nav{display:flex;flex-direction:column;gap:.25rem;padding:.75rem 1rem}
+.mobile-menu__nav a{display:block;padding:.75rem .5rem;font-size:.9375rem;font-weight:500;color:var(--s700);border-radius:.5rem}
+.mobile-menu__nav a:hover{background:var(--s50)}.mobile-menu__danger{color:var(--r700)!important}
+@media(min-width:768px){.nav-desktop{display:flex}.hamburger{display:none}}
+.page{padding-block:3rem}
+.page h1{font-size:1.875rem;font-weight:600;color:var(--s900)}
+.page > .container > p.lead{margin-top:.75rem;max-width:42rem;color:var(--s600)}
+.back-link{font-size:.875rem;font-weight:500;color:var(--b700)}
+.info-box{margin-top:1.5rem;padding:1.5rem;display:grid;gap:1rem;background:var(--s50);border:1px solid var(--s200);border-radius:var(--rad)}
+@media(min-width:640px){.info-box{grid-template-columns:repeat(3,1fr)}}
+.info-box dt{font-size:.6875rem;text-transform:uppercase;letter-spacing:.05em;color:var(--s400)}
+.info-box dd{margin-top:.25rem;font-weight:500;color:var(--s900)}
+.services{margin-top:.75rem;display:grid;gap:.5rem;grid-template-columns:1fr;list-style:none}
+@media(min-width:640px){.services{grid-template-columns:repeat(2,1fr)}}
+.services li{padding:.75rem 1rem;font-size:.875rem;color:var(--s700);border:1px solid var(--s200);border-radius:.5rem}
+.grid-3{display:grid;gap:1rem;grid-template-columns:1fr;margin-top:1rem}
+@media(min-width:768px){.grid-3{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.grid-3{grid-template-columns:repeat(3,1fr)}}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:.625rem 1rem;font-size:.875rem;font-weight:500;border-radius:.5rem;border:1px solid transparent;cursor:pointer}
+.btn--primary{background:var(--b700);color:#fff}.btn--primary:hover{background:var(--b800)}
+.btn--ghost{border-color:var(--s300);color:var(--s700);background:#fff}
+.doctor-card{display:flex;flex-direction:column;padding:1.25rem;background:#fff;border:1px solid var(--s200);border-radius:var(--rad);box-shadow:var(--sh1)}
+.doctor-card__head{display:flex;align-items:flex-start;gap:.75rem}
+.doctor-card__avatar{display:grid;place-items:center;flex-shrink:0;width:3rem;height:3rem;border-radius:999px;background:var(--b100);color:var(--b800);font-weight:600}
+.doctor-card h3{font-size:1rem;font-weight:600;color:var(--s900)}
+.doctor-card__title{font-size:.875rem;color:var(--s600)}
+.doctor-card__bio{margin-top:.75rem;font-size:.875rem;color:var(--s600)}
+.doctor-card__meta{margin-top:1rem;display:grid;grid-template-columns:repeat(2,1fr);gap:.5rem;font-size:.75rem}
+.doctor-card__meta dt{color:var(--s400)}
+.doctor-card__meta dd{font-weight:500;color:var(--s800);margin-top:1px}
+.doctor-card__meta .next{color:var(--em700)}
+.doctor-card__actions{margin-top:1rem;display:flex;gap:.5rem}
+.doctor-card__actions .btn{padding:.5rem .75rem;font-size:.875rem}
+.site-footer{margin-top:6rem;border-top:1px solid var(--s200);background:var(--s50)}
+.site-footer__grid{display:grid;gap:2rem;padding-block:3rem;grid-template-columns:1fr}
+@media(min-width:640px){.site-footer__grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.site-footer__grid{grid-template-columns:repeat(4,1fr)}}
+.site-footer h3,.site-footer h4{font-weight:600;color:var(--s900)}
+.site-footer h4{font-size:.875rem}
+.site-footer p,.site-footer li{font-size:.875rem;color:var(--s600);margin-top:.5rem}
+.site-footer ul{list-style:none}
+.site-footer__legal{padding-block:1rem;font-size:.75rem;text-align:center;color:var(--s500);border-top:1px solid var(--s200)}
+</style>
+</head>
+<body>
+
+<div class="emergency-bar"><div class="container emergency-bar__inner"><span class="emergency-bar__text">Emergency? Call <a href="tel:907">907</a></span><a href="emergency.html" class="emergency-bar__link">ER wait times →</a></div></div>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a href="index.html" class="brand"><span class="brand__mark">H</span><span class="brand__name">Horizon General Hospital</span></a>
+    <nav class="nav-desktop">
+      <a href="find-a-doctor.html">Find a doctor</a><a href="departments.html">Departments</a><a href="services.html">Services</a>
+      <a href="book.html">Book a visit</a><a href="patients-visitors.html">Patients &amp; visitors</a><a href="about.html">About</a><a href="portal.html">Patient portal</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span class="hamburger__bar"></span><span class="hamburger__bar"></span><span class="hamburger__bar"></span></button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <nav class="mobile-menu__nav">
+      <a href="find-a-doctor.html">Find a doctor</a><a href="departments.html">Departments</a><a href="services.html">Services</a>
+      <a href="book.html">Book a visit</a><a href="patients-visitors.html">Patients &amp; visitors</a><a href="about.html">About</a>
+      <a href="portal.html">Patient portal</a><a href="contact.html">Contact</a><a href="careers.html">Careers</a>
+      <a href="insurance.html">Insurance</a><a href="news.html">News</a><a href="emergency.html" class="mobile-menu__danger">Emergency</a>
+    </nav>
+  </div>
+</header>
+
+<main class="app">
+  <div class="page">
+    <div class="container">
+      <a href="departments.html" class="back-link">← All departments</a>
+      <h1 id="dept-name" style="margin-top:1rem">Loading…</h1>
+      <p class="lead" id="dept-desc"></p>
+      <dl class="info-box">
+        <div><dt>Clinical lead</dt><dd id="dept-head"></dd></div>
+        <div><dt>Location</dt><dd id="dept-loc"></dd></div>
+        <div><dt>Appointments</dt><dd><a href="book.html" style="color:var(--b700);font-weight:500">Book a visit →</a></dd></div>
+      </dl>
+      <section style="margin-top:2.5rem">
+        <h2 style="font-size:1.25rem;font-weight:600;color:var(--s900)">Services</h2>
+        <ul class="services" id="dept-services"></ul>
+      </section>
+      <section style="margin-top:3rem" id="docs-section" hidden>
+        <h2 style="font-size:1.25rem;font-weight:600;color:var(--s900)">Doctors in this department</h2>
+        <div class="grid-3" id="dept-docs"></div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container site-footer__grid">
+    <div><h
