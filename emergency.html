@@ -113,4 +113,43 @@ a{color:inherit;text-decoration:none}button{font:inherit;color:inherit}
           <tbody>
             <tr><td>Main ER — Ground Floor</td><td style="font-weight:500;color:var(--s900)">~15 min</td><td><span class="status-badge status-badge--low">Low</span></td></tr>
             <tr><td>Pediatric ER — Level 1</td><td style="font-weight:500;color:var(--s900)">~10 min</td><td><span class="status-badge status-badge--low">Low</span></td></tr>
-           
+            <tr><td>Trauma Bay — Ground Floor</td><td style="font-weight:500;color:var(--s900)">~30 min</td><td><span class="status-badge status-badge--moderate">Moderate</span></td></tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="grid-2">
+        <div class="box">
+          <h2>When to come to the ER</h2>
+          <ul class="flag-list">
+            <li>Chest pain or pressure</li><li>Difficulty breathing</li><li>Severe bleeding that won't stop</li>
+            <li>Sudden weakness or slurred speech</li><li>Head injury with confusion or vomiting</li>
+            <li>Severe abdominal pain</li><li>High fever in an infant under 3 months</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h2>Getting here</h2>
+          <p>Bole Road, Addis Ababa, Ethiopia</p>
+          <p>Follow the red emergency signs to the dedicated ER entrance on the ground floor. Drop-off is directly outside the ER doors.</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=Bole+Road+Addis+Ababa+Ethiopia" target="_blank" rel="noopener noreferrer" class="btn btn--primary" style="margin-top:1rem">Open in maps →</a>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container site-footer__grid">
+    <div><h3>Horizon General Hospital</h3><p>Bole Road, Addis Ababa, Ethiopia</p><p><a href="tel:+251115550100">+251 11 555 0100</a></p></div>
+    <div><h4>Care</h4><ul><li><a href="find-a-doctor.html">Find a doctor</a></li><li><a href="departments.html">Departments</a></li><li><a href="book.html">Book a visit</a></li><li><a href="emergency.html">Emergency</a></li></ul></div>
+    <div><h4>Patients</h4><ul><li><a href="patients-visitors.html">Visiting hours</a></li><li><a href="portal.html">Pay a bill</a></li><li><a href="insurance.html">Insurance</a></li></ul></div>
+    <div><h4>Hospital</h4><ul><li><a href="about.html">About</a></li><li><a href="careers.html">Careers</a></li><li><a href="news.html">News</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+  </div>
+  <div class="site-footer__legal container">© 2025 Horizon General Hospital. In an emergency call 907.</div>
+</footer>
+
+<script>
+const hb=document.getElementById('hamburger'),mm=document.getElementById('mobile-menu');
+hb.addEventListener('click',()=>{const o=hb.getAttribute('aria-expanded')==='true';hb.setAttribute('aria-expanded',String(!o));mm.hidden=o;});
+</script>
+</body>
+</html>
