@@ -113,4 +113,114 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 <footer class="site-footer">
   <div class="container site-footer__grid">
     <div><h3>Horizon General Hospital</h3><p>Bole Road, Addis Ababa, Ethiopia</p><p><a href="tel:+251115550100">+251 11 555 0100</a></p></div>
-    <div><h4>Care</h4><ul><li><a href="find-a-doctor.html">Find a
+    <div><h4>Care</h4><ul><li><a href="find-a-doctor.html">Find a doctor</a></li><li><a href="departments.html">Departments</a></li><li><a href="book.html">Book a visit</a></li><li><a href="emergency.html">Emergency</a></li></ul></div>
+    <div><h4>Patients</h4><ul><li><a href="patients-visitors.html">Visiting hours</a></li><li><a href="portal.html">Pay a bill</a></li><li><a href="insurance.html">Insurance</a></li></ul></div>
+    <div><h4>Hospital</h4><ul><li><a href="about.html">About</a></li><li><a href="careers.html">Careers</a></li><li><a href="news.html">News</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+  </div>
+  <div class="site-footer__legal container">© 2025 Horizon General Hospital. In an emergency call 907.</div>
+</footer>
+
+<script>
+const hb=document.getElementById('hamburger'),mm=document.getElementById('mobile-menu');
+hb.addEventListener('click',()=>{const o=hb.getAttribute('aria-expanded')==='true';hb.setAttribute('aria-expanded',String(!o));mm.hidden=o;});
+
+const DOCS=[
+{id:"selam-tesfaye",name:"Dr. Selam Tesfaye",specialty:"Cardiology"},
+{id:"hanna-girma",name:"Dr. Hanna Girma",specialty:"Pediatrics"},
+{id:"abel-mekonnen",name:"Dr. Abel Mekonnen",specialty:"Internal Medicine"},
+{id:"yonas-bekele",name:"Dr. Yonas Bekele",specialty:"Orthopedics"},
+{id:"meron-assefa",name:"Dr. Meron Assefa",specialty:"Obstetrics & Gynecology"},
+{id:"dawit-haile",name:"Dr. Dawit Haile",specialty:"Radiology"},
+{id:"rahel-tesfaye",name:"Dr. Rahel Tesfaye",specialty:"Laboratory"},
+{id:"nahom-wolde",name:"Dr. Nahom Wolde",specialty:"Emergency Medicine"}
+];
+const SLOTS=["08:30","09:30","10:30","11:30","13:00","14:00","15:30","16:30"];
+const st={step:1,doctorId:"selam-tesfaye",type:"in-person",date:"",slot:"",name:"",phone:"",email:"",reason:"",consent:false,ref:null};
+
+function renderBooking(){
+  const wrap=document.getElementById('booking-form-wrap');
+  if(st.ref){
+    const doc=DOCS.find(d=>d.id===st.doctorId)||DOCS[0];
+    wrap.innerHTML=`
+      <div class="booking-success">
+        <h2>Appointment requested</h2>
+        <p>We'll confirm by SMS within 30 minutes. Your reference is <strong style="font-family:ui-monospace,monospace">${st.ref}</strong>.</p>
+        <dl>
+          <div><dt>Doctor</dt><dd>${doc.name}</dd></div>
+          <div><dt>Type</dt><dd style="text-transform:capitalize">${st.type}</dd></div>
+          <div><dt>Date</dt><dd>${st.date}</dd></div>
+          <div><dt>Time</dt><dd>${st.slot}</dd></div>
+        </dl>
+        <div class="booking-success__actions">
+          <a href="index.html" class="btn btn--primary">Back to home</a>
+          <button type="button" class="btn btn--ghost" id="reset">Book another</button>
+        </div>
+      </div>`;
+    document.getElementById('reset').onclick=()=>{Object.assign(st,{step:1,doctorId:"selam-tesfaye",type:"in-person",date:"",slot:"",name:"",phone:"",email:"",reason:"",consent:false,ref:null});renderBooking();};
+    return;
+  }
+  const can=st.step===1?true:st.step===2?(!!st.date&&!!st.slot):(st.name.trim()!==""&&st.phone.trim()!=="");
+  const today=new Date().toISOString().split("T")[0];
+  wrap.innerHTML=`
+    <form id="bf">
+      <div class="steps">
+        ${["Choose","Schedule","Details"].map((l,i)=>`
+          <div class="steps__item ${st.step>i?"steps__item--done":""} ${st.step===i+1?"steps__item--active":""}">
+            <span class="steps__dot">${i+1}</span><span>${l}</span>
+            ${i<2?'<span class="steps__line"></span>':''}
+          </div>`).join("")}
+      </div>
+      ${st.step===1?`
+        <div class="form-group">
+          <label>Doctor</label>
+          <select id="bDoc">
+            ${DOCS.map(d=>`<option value="${d.id}" ${st.doctorId===d.id?"selected":""}>${d.name} — ${d.specialty}</option>`).join("")}
+          </select>
+        </div>
+        <div>
+          <span class="form-label">Visit type</span>
+          <div class="toggle-row">
+            ${["in-person","video"].map(t=>`<button type="button" data-type="${t}" class="toggle-btn ${st.type===t?"toggle-btn--active":""}">${t}</button>`).join("")}
+          </div>
+        </div>`:""}
+      ${st.step===2?`
+        <div class="form-group"><label>Date</label><input type="date" id="bDate" min="${today}" value="${st.date}" /></div>
+        <div>
+          <span class="form-label">Available times</span>
+          <div class="slots">
+            ${SLOTS.map(t=>`<button type="button" data-slot="${t}" class="slot-btn ${st.slot===t?"slot-btn--active":""}">${t}</button>`).join("")}
+          </div>
+        </div>`:""}
+      ${st.step===3?`
+        <div class="form-group"><label>Full name</label><input id="bName" value="${st.name}" required /></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+          <div class="form-group"><label>Phone</label><input id="bPhone" value="${st.phone}" required /></div>
+          <div class="form-group"><label>Email (optional)</label><input type="email" id="bEmail" value="${st.email}" /></div>
+        </div>
+        <div class="form-group"><label>Reason for visit</label><textarea id="bReason" rows="3" placeholder="Briefly describe your symptoms">${st.reason}</textarea></div>
+        <label class="consent-row"><input type="checkbox" id="bConsent" ${st.consent?"checked":""} style="margin-top:.25rem" /><span>I consent to being contacted about this appointment.</span></label>`:""}
+      <div class="form-actions">
+        <button type="button" class="btn btn--ghost" id="bPrev" ${st.step===1?"disabled":""}>Back</button>
+        ${st.step<3?`<button type="button" class="btn btn--primary" id="bNext" ${can?"":"disabled"}>Continue</button>`
+                  :`<button type="submit" class="btn btn--primary" ${(can&&st.consent)?"":"disabled"}>Request appointment</button>`}
+      </div>
+    </form>`;
+
+  if(document.getElementById('bDoc')) document.getElementById('bDoc').onchange=e=>st.doctorId=e.target.value;
+  if(document.getElementById('bDate')) document.getElementById('bDate').onchange=e=>{st.date=e.target.value;renderBooking();};
+  if(document.getElementById('bName')) document.getElementById('bName').oninput=e=>st.name=e.target.value;
+  if(document.getElementById('bPhone')) document.getElementById('bPhone').oninput=e=>st.phone=e.target.value;
+  if(document.getElementById('bEmail')) document.getElementById('bEmail').oninput=e=>st.email=e.target.value;
+  if(document.getElementById('bReason')) document.getElementById('bReason').oninput=e=>st.reason=e.target.value;
+  if(document.getElementById('bConsent')) document.getElementById('bConsent').onchange=e=>{st.consent=e.target.checked;renderBooking();};
+
+  wrap.querySelectorAll('[data-type]').forEach(b=>b.onclick=()=>{st.type=b.dataset.type;renderBooking();});
+  wrap.querySelectorAll('[data-slot]').forEach(b=>b.onclick=()=>{st.slot=b.dataset.slot;renderBooking();});
+  document.getElementById('bPrev')&&(document.getElementById('bPrev').onclick=()=>{st.step=Math.max(1,st.step-1);renderBooking();});
+  document.getElementById('bNext')&&(document.getElementById('bNext').onclick=()=>{st.step=Math.min(3,st.step+1);renderBooking();});
+  document.getElementById('bf').onsubmit=e=>{e.preventDefault();st.ref="HZ-"+Math.random().toString(36).slice(2,8).toUpperCase();renderBooking();};
+}
+renderBooking();
+</script>
+</body>
+</html>
